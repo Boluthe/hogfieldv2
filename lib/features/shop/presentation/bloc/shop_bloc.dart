@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../domain/entities/shop.dart';
 import '../../domain/usecases/shop_usecases.dart';
 import '../../../../core/usecase/usecase.dart';
+import '../../../../core/services/cloud_sync_service.dart';
 
 part 'shop_event.dart';
 part 'shop_state.dart';
@@ -35,7 +36,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
     result.fold(
       (failure) => emit(ShopError(failure.message)),
       (_) {
-        // Reload shop to update state with latest data (though local is same)
+        CloudSyncService.syncAll();
         add(LoadShopEvent());
         emit(ShopOperationSuccess());
       },

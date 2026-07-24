@@ -4,6 +4,7 @@ import '../../../../core/error/failure.dart';
 import '../../domain/entities/product.dart';
 import '../../domain/repositories/product_repository.dart';
 import '../models/product_model.dart';
+import '../../../../core/data/hive_database.dart';
 
 class ProductRepositoryImpl implements ProductRepository {
   @override
@@ -35,9 +36,8 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, void>> addProduct(Product product) async {
     try {
       final box = HiveDatabase.productBox;
-      // You can use add() or put()
       final model = ProductModel.fromEntity(product);
-      await box.put(model.id, model); // Using ID as key
+      await box.put(model.id, model); 
       return const Right(null);
     } catch (e) {
       return Left(CacheFailure(e.toString()));

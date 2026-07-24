@@ -8,6 +8,12 @@ import '../../../shop/presentation/bloc/shop_bloc.dart';
 import '../bloc/printer_bloc.dart';
 import '../bloc/printer_event.dart';
 import '../bloc/printer_state.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
+import '../../../auth/presentation/bloc/auth_event.dart';
+import '../../../../core/data/hive_database.dart';
+import '../../../../core/services/cloud_sync_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../../auth/domain/entities/role.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -22,6 +28,113 @@ class _SettingsPageState extends State<SettingsPage> {
     super.initState();
     // Re-initialize printer state whenever settings page opens
     context.read<PrinterBloc>().add(InitPrinterEvent());
+  }
+
+  void _showChangePinDialog(String role) {
+    String newPin = '';
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Change ${role.toUpperCase()} PIN'),
+          content: TextField(
+            keyboardType: TextInputType.number,
+            maxLength: 4,
+            decoration: const InputDecoration(labelText: 'New 4-digit PIN'),
+            onChanged: (val) => newPin = val,
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                if (newPin.length == 4) {
+                  context.read<AuthBloc>().add(ChangePinEvent(role, newPin));
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('$role PIN updated successfully!'), backgroundColor: Colors.green),
+                  );
+                }
+              },
+              child: const Text('Save'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showSmtpSettingsDialog() {
+    final box = HiveDatabase.settingsBox;
+    String host = box.get('smtp_host', defaultValue: '');
+    String port = box.get('smtp_port', defaultValue: '587');
+    String user = box.get('smtp_user', defaultValue: '');
+    String pass = box.get('smtp_pass', defaultValue: '');
+    String target = box.get('smtp_target', defaultValue: '');
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('SMTP Email Configuration'),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  decoration: const InputDecoration(labelText: 'SMTP Host (e.g. smtp.gmail.com)'),
+                  controller: TextEditingController(text: host)..selection = TextSelection.collapsed(offset: host.length),
+                  onChanged: (val) => host = val,
+                ),
+                TextField(
+                  decoration: const InputDecoration(labelText: 'SMTP Port'),
+                  keyboardType: TextInputType.number,
+                  controller: TextEditingController(text: port)..selection = TextSelection.collapsed(offset: port.length),
+                  onChanged: (val) => port = val,
+                ),
+                TextField(
+                  decoration: const InputDecoration(labelText: 'SMTP Username (Email)'),
+                  controller: TextEditingController(text: user)..selection = TextSelection.collapsed(offset: user.length),
+                  onChanged: (val) => user = val,
+                ),
+                TextField(
+                  decoration: const InputDecoration(labelText: 'App Password'),
+                  obscureText: true,
+                  controller: TextEditingController(text: pass)..selection = TextSelection.collapsed(offset: pass.length),
+                  onChanged: (val) => pass = val,
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  decoration: const InputDecoration(labelText: 'Send Reports To (Email)'),
+                  controller: TextEditingController(text: target)..selection = TextSelection.collapsed(offset: target.length),
+                  onChanged: (val) => target = val,
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                box.put('smtp_host', host);
+                box.put('smtp_port', port);
+                box.put('smtp_user', user);
+                box.put('smtp_pass', pass);
+                box.put('smtp_target', target);
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('SMTP Settings Saved!'), backgroundColor: Colors.green));
+              },
+              child: const Text('Save'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -113,6 +226,70 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: 'Shop Details',
                   subtitle: 'Edit business info & address',
                   onTap: () => context.push('/shop'),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 24),
+
+            // Cloud Sync Section
+            if (context.read<AuthBloc>().state.role == UserRole.admin) ...[
+              _buildSectionHeader('Cloud Sync'),
+              _buildListGroup(
+                children: [
+                  _buildListItem(
+                    icon: Icons.sync,
+                    title: 'Sync Now',
+                    subtitle: 'Force upload and download data',
+                    onTap: () async {
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (_) => const Center(child: CircularProgressIndicator()),
+                      );
+
+                      await CloudSyncService.pushAll();
+
+                      if (context.mounted) {
+                        Navigator.pop(context);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Sync completed successfully!'), backgroundColor: Colors.green),
+                        );
+                      }
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+            ],
+
+            // Security Section
+            _buildSectionHeader('Security & Access'),
+            _buildListGroup(
+              children: [
+                _buildListItem(
+                  icon: Icons.admin_panel_settings,
+                  title: 'Change Admin PIN',
+                  onTap: () => _showChangePinDialog('admin'),
+                ),
+                _buildDivider(),
+                _buildListItem(
+                  icon: Icons.point_of_sale,
+                  title: 'Change Cashier PIN',
+                  onTap: () => _showChangePinDialog('cashier'),
+                ),
+                _buildDivider(),
+                _buildListItem(
+                  icon: Icons.people,
+                  title: 'Change Staff PIN',
+                  onTap: () => _showChangePinDialog('staff'),
+                ),
+                _buildDivider(),
+                _buildListItem(
+                  icon: Icons.email,
+                  title: 'Email Reporting (SMTP)',
+                  subtitle: 'Configure daily reports',
+                  onTap: _showSmtpSettingsDialog,
                 ),
               ],
             ),

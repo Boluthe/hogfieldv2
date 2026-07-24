@@ -8,6 +8,8 @@ import '../../features/shop/presentation/pages/shop_details_page.dart';
 import '../../features/settings/presentation/pages/settings_page.dart';
 import '../../features/billing/presentation/pages/scanner_page.dart';
 import '../../features/billing/presentation/pages/checkout_page.dart';
+import '../../features/billing/presentation/pages/receipt_preview_page.dart';
+import '../../features/billing/presentation/pages/sales_history_page.dart';
 import '../../features/product/domain/entities/product.dart';
 
 final router = GoRouter(
@@ -28,6 +30,14 @@ final router = GoRouter(
         GoRoute(
           path: 'checkout',
           builder: (context, state) => const CheckoutPage(),
+        ),
+        GoRoute(
+          path: 'receipt_preview',
+          builder: (context, state) => const ReceiptPreviewPage(),
+        ),
+        GoRoute(
+          path: 'sales_history',
+          builder: (context, state) => const SalesHistoryPage(),
         ),
       ],
     ),
