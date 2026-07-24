@@ -23,8 +23,8 @@ class ShopModelAdapter extends TypeAdapter<ShopModel> {
       phoneNumber: fields[3] as String,
       upiId: fields[4] as String,
       footerText: fields[5] as String,
-      taxRate: fields[6] as double,
-      taxName: fields[7] as String,
+      taxRate: fields[6] == null ? 0.0 : fields[6] as double,
+      taxName: fields[7] == null ? '' : fields[7] as String,
     );
   }
 

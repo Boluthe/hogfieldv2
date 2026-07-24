@@ -21,8 +21,8 @@ class ProductModelAdapter extends TypeAdapter<ProductModel> {
       name: fields[1] as String,
       barcode: fields[2] as String,
       price: fields[3] as double,
-      stock: fields[4] as int,
-      unitType: fields[5] as String,
+      stock: fields[4] == null ? 0 : fields[4] as int,
+      unitType: fields[5] == null ? 'pieces' : fields[5] as String,
     );
   }
 

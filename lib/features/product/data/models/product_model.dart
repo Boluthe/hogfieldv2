@@ -18,10 +18,10 @@ class ProductModel extends Product {
   @HiveField(3)
   final double price;
   @override
-  @HiveField(4)
+  @HiveField(4, defaultValue: 0)
   final int stock;
   @override
-  @HiveField(5)
+  @HiveField(5, defaultValue: 'pieces')
   final String unitType;
 
   const ProductModel({

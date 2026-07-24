@@ -24,10 +24,10 @@ class ShopModel extends Shop {
   @HiveField(5)
   final String footerText;
   @override
-  @HiveField(6)
+  @HiveField(6, defaultValue: 0.0)
   final double taxRate;
   @override
-  @HiveField(7)
+  @HiveField(7, defaultValue: '')
   final String taxName;
 
   const ShopModel({

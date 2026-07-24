@@ -23,7 +23,7 @@ class OrderModel {
   @HiveField(5)
   final double total;
 
-  @HiveField(6)
+  @HiveField(6, defaultValue: 0.0)
   final double tax;
 
   OrderModel({
