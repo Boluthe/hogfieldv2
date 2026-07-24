@@ -21,13 +21,13 @@ final router = GoRouter(
       builder: (context, state) => const PinLoginPage(),
     ),
     GoRoute(
+      path: '/scanner',
+      builder: (context, state) => const ScannerPage(),
+    ),
+    GoRoute(
       path: '/home',
       builder: (context, state) => const HomePage(),
       routes: [
-        GoRoute(
-          path: 'scanner',
-          builder: (context, state) => const ScannerPage(),
-        ),
         GoRoute(
           path: 'checkout',
           builder: (context, state) => const CheckoutPage(),

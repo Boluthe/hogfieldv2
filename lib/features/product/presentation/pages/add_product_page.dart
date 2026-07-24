@@ -24,12 +24,26 @@ class _AddProductPageState extends State<AddProductPage> {
   double _price = 0.0;
   int _stock = 0;
   String _unitType = 'pieces';
+  late TextEditingController _barcodeController;
+
+  @override
+  void initState() {
+    super.initState();
+    _barcodeController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _barcodeController.dispose();
+    super.dispose();
+  }
 
   void _scanBarcode() async {
     final result = await context.push<String>('/scanner');
     if (result != null && result.isNotEmpty) {
       setState(() {
         _barcode = result;
+        _barcodeController.text = result;
       });
     }
   }
@@ -94,14 +108,13 @@ class _AddProductPageState extends State<AddProductPage> {
                     children: [
                       Expanded(
                         child: TextFormField(
-                          key: ValueKey(_barcode),
-                          initialValue: _barcode,
+                          controller: _barcodeController,
                           decoration: const InputDecoration(
                             hintText: 'Scan or enter barcode',
                           ),
                           validator:
                               AppValidators.required('Please enter a barcode'),
-                          onSaved: (value) => _barcode = value!,
+                          onSaved: (value) => _barcode = _barcodeController.text.trim(),
                         ),
                       ),
                       const SizedBox(width: 12),
