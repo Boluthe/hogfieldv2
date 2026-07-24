@@ -5,15 +5,23 @@ class BillingState extends Equatable {
   final String? error;
   final bool isPrinting;
   final bool printSuccess;
+  final double discountPercentage;
+  final String discountCode;
+  final OrderModel? lastOrder;
 
   const BillingState({
     this.cartItems = const [],
     this.error,
     this.isPrinting = false,
     this.printSuccess = false,
+    this.discountPercentage = 0.0,
+    this.discountCode = '',
+    this.lastOrder,
   });
 
-  double get totalAmount => cartItems.fold(0, (sum, item) => sum + item.total);
+  double get subtotal => cartItems.fold(0, (sum, item) => sum + item.total);
+  double get discountAmount => subtotal * discountPercentage;
+  double get totalAmount => subtotal - discountAmount;
 
   BillingState copyWith({
     List<CartItem>? cartItems,
@@ -21,15 +29,30 @@ class BillingState extends Equatable {
     bool clearError = false,
     bool? isPrinting,
     bool? printSuccess,
+    double? discountPercentage,
+    String? discountCode,
+    OrderModel? lastOrder,
+    bool clearLastOrder = false,
   }) {
     return BillingState(
       cartItems: cartItems ?? this.cartItems,
       error: clearError ? null : (error ?? this.error),
       isPrinting: isPrinting ?? this.isPrinting,
       printSuccess: printSuccess ?? this.printSuccess,
+      discountPercentage: discountPercentage ?? this.discountPercentage,
+      discountCode: discountCode ?? this.discountCode,
+      lastOrder: clearLastOrder ? null : (lastOrder ?? this.lastOrder),
     );
   }
 
   @override
-  List<Object?> get props => [cartItems, error, isPrinting, printSuccess];
+  List<Object?> get props => [
+        cartItems,
+        error,
+        isPrinting,
+        printSuccess,
+        discountPercentage,
+        discountCode,
+        lastOrder
+      ];
 }

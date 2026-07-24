@@ -5,6 +5,8 @@ import 'package:billing_app/features/product/domain/entities/product.dart';
 import 'package:billing_app/features/product/domain/usecases/product_usecases.dart';
 import '../../../../core/utils/printer_helper.dart';
 import '../../../../core/data/hive_database.dart';
+import 'package:uuid/uuid.dart';
+import '../../data/models/order_model.dart';
 
 part 'billing_event.dart';
 part 'billing_state.dart';
@@ -19,6 +21,8 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
     on<RemoveProductFromCartEvent>(_onRemoveProductFromCart);
     on<UpdateQuantityEvent>(_onUpdateQuantity);
     on<ClearCartEvent>(_onClearCart);
+    on<ApplyDiscountCodeEvent>(_onApplyDiscountCode);
+    on<CheckoutEvent>(_onCheckout);
     on<PrintReceiptEvent>(_onPrintReceipt);
   }
 
@@ -82,6 +86,33 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
     emit(const BillingState());
   }
 
+  void _onApplyDiscountCode(ApplyDiscountCodeEvent event, Emitter<BillingState> emit) {
+    if (event.code.toUpperCase() == 'FAMBAKARE') {
+      emit(state.copyWith(discountPercentage: 1.0, discountCode: event.code));
+    } else {
+      emit(state.copyWith(error: 'Invalid discount code', clearError: false));
+      emit(state.copyWith(clearError: true));
+    }
+  }
+
+  Future<void> _onCheckout(CheckoutEvent event, Emitter<BillingState> emit) async {
+    if (state.cartItems.isEmpty) return;
+
+    final items = state.cartItems.map((c) => OrderItemModel.fromCartItem(c)).toList();
+    final order = OrderModel(
+      id: const Uuid().v4(),
+      date: DateTime.now(),
+      items: items,
+      subtotal: state.subtotal,
+      discount: state.discountAmount,
+      total: state.totalAmount,
+    );
+
+    await HiveDatabase.ordersBox.put(order.id, order);
+
+    emit(const BillingState().copyWith(lastOrder: order));
+  }
+
   Future<void> _onPrintReceipt(
       PrintReceiptEvent event, Emitter<BillingState> emit) async {
     final printerHelper = PrinterHelper();
@@ -109,14 +140,25 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
         isPrinting: true, printSuccess: false, clearError: true));
 
     try {
-      final items = state.cartItems
-          .map((item) => {
-                'name': item.product.name,
+      final items = state.cartItems.isEmpty && state.lastOrder != null
+          ? state.lastOrder!.items.map((item) => {
+                'name': item.productName,
                 'qty': item.quantity,
-                'price': item.product.price,
-                'total': item.total,
-              })
-          .toList();
+                'price': item.price,
+                'total': item.price * item.quantity,
+              }).toList()
+          : state.cartItems
+              .map((item) => {
+                    'name': item.product.name,
+                    'qty': item.quantity,
+                    'price': item.product.price,
+                    'total': item.total,
+                  })
+              .toList();
+
+      final totalToPrint = state.cartItems.isEmpty && state.lastOrder != null
+          ? state.lastOrder!.total
+          : state.totalAmount;
 
       await printerHelper.printReceipt(
           shopName: event.shopName,
@@ -124,7 +166,7 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
           address2: event.address2,
           phone: event.phone,
           items: items,
-          total: state.totalAmount,
+          total: totalToPrint,
           footer: event.footer);
 
       emit(state.copyWith(isPrinting: false, printSuccess: true));

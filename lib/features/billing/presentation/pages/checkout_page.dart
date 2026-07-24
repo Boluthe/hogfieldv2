@@ -15,6 +15,14 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
+  final TextEditingController _discountController = TextEditingController();
+
+  @override
+  void dispose() {
+    _discountController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     const borderColor = Color(0xFFE5E5EA);
@@ -44,12 +52,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ),
           body: BlocConsumer<BillingBloc, BillingState>(
             listener: (context, state) {
-              if (state.printSuccess) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Printed successfully'),
-                    backgroundColor: Colors.green));
-                // context.read<BillingBloc>().add(ClearCartEvent());
-                // context.go('/');
+              if (state.lastOrder != null && state.cartItems.isEmpty) {
+                context.go('/home/receipt_preview');
+              } else if (state.error != null) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(state.error!),
+                    backgroundColor: Colors.red));
               }
             },
             builder: (context, billingState) {
@@ -135,9 +143,49 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               ),
                             ),
                             const SizedBox(height: 24),
+                            // Discount Code
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: TextField(
+                                    controller: _discountController,
+                                    decoration: InputDecoration(
+                                      labelText: 'Discount Code',
+                                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                                      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                                    backgroundColor: Colors.black87,
+                                    foregroundColor: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    context.read<BillingBloc>().add(ApplyDiscountCodeEvent(_discountController.text));
+                                  },
+                                  child: const Text('Apply'),
+                                ),
+                              ],
+                            ),
+                            if (billingState.discountPercentage > 0)
+                              Padding(
+                                padding: const EdgeInsets.only(top: 12),
+                                child: Row(
+                                  children: [
+                                    const Icon(Icons.check_circle, color: Colors.green, size: 16),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      'Discount applied: ${billingState.discountCode}',
+                                      style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
 
-                            const SizedBox(
-                                height: 120), // padding for bottom fixed bar
+                            const SizedBox(height: 120),
                           ],
                         ),
                       ),
@@ -196,26 +244,41 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                     : const SizedBox.shrink(),
                                 const SizedBox(height: 15),
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      'GRAND TOTAL',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey[400],
-                                        letterSpacing: 1.2,
-                                      ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('SUBTOTAL', style: TextStyle(fontSize: 10, color: Colors.grey[400], fontWeight: FontWeight.bold)),
+                                        if (billingState.discountAmount > 0)
+                                          Text('DISCOUNT', style: TextStyle(fontSize: 10, color: Colors.red[400], fontWeight: FontWeight.bold)),
+                                        Text(
+                                          'GRAND TOTAL',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.grey[600],
+                                            letterSpacing: 1.2,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      '₦${billingState.totalAmount.toStringAsFixed(2)}',
-                                      style: const TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: -0.5,
-                                        color: Color(0xFF0F172A),
-                                      ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      children: [
+                                        Text('₦${billingState.subtotal.toStringAsFixed(2)}', style: TextStyle(fontSize: 12, color: Colors.grey[600], fontWeight: FontWeight.bold)),
+                                        if (billingState.discountAmount > 0)
+                                          Text('-₦${billingState.discountAmount.toStringAsFixed(2)}', style: TextStyle(fontSize: 12, color: Colors.red[400], fontWeight: FontWeight.bold)),
+                                        Text(
+                                          '₦${billingState.totalAmount.toStringAsFixed(2)}',
+                                          style: const TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: -0.5,
+                                            color: Color(0xFF0F172A),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
@@ -224,25 +287,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           ),
                           PrimaryButton(
                             onPressed: () {
-                              if (shopState is ShopLoaded) {
-                                context.read<BillingBloc>().add(
-                                    PrintReceiptEvent(
-                                        shopName: shopState.shop.name,
-                                        address1: shopState.shop.addressLine1,
-                                        address2: shopState.shop.addressLine2,
-                                        phone: shopState.shop.phoneNumber,
-                                        footer: shopState.shop.footerText));
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content:
-                                            Text('Shop details not loaded'),
-                                        backgroundColor: Colors.red));
-                              }
+                              context.read<BillingBloc>().add(CheckoutEvent());
                             },
-                            label: 'Print Receipt',
-                            icon: Icons.print,
-                            isLoading: billingState.isPrinting,
+                            label: 'Confirm & Pay',
+                            icon: Icons.check_circle,
                           ),
                         ],
                       ),
