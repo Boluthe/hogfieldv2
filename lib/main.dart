@@ -12,9 +12,16 @@ import 'features/settings/presentation/bloc/printer_event.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/auth/presentation/bloc/auth_event.dart';
 import 'core/utils/csv_importer.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   await HiveDatabase.init();
   await CsvImporter.seedProductsIfEmpty();
   await di.init();
