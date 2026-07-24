@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../data/hive_database.dart';
 import '../../features/product/data/models/product_model.dart';
 import '../../features/billing/data/models/order_model.dart';
+import '../../features/shop/data/models/shop_model.dart';
 
 /// CloudSyncService implements an Offline-First hybrid architecture:
 ///
@@ -107,10 +108,27 @@ class CloudSyncService {
       if (!doc.exists) return;
       final data = doc.data()!;
       final box = HiveDatabase.shopBox;
-      if (data.containsKey('shopName')) box.put('shopName', data['shopName']);
-      if (data.containsKey('address')) box.put('address', data['address']);
-      if (data.containsKey('phone')) box.put('phone', data['phone']);
-      if (data.containsKey('taxRate')) box.put('taxRate', (data['taxRate'] as num).toDouble());
+      
+      final currentShop = box.get('shop_details') as ShopModel? ??
+          const ShopModel(
+            name: 'Dinesh Shop',
+            addressLine1: 'Samrajpet, Mecheri',
+            addressLine2: 'Salem - 636453',
+            phoneNumber: '+917010674588',
+            upiId: 'dineshsowndar@oksbi',
+            footerText: 'Thank you, Visit again!!!',
+          );
+
+      final updatedShop = ShopModel(
+        name: data.containsKey('shopName') ? data['shopName'] : currentShop.name,
+        addressLine1: data.containsKey('addressLine1') ? data['addressLine1'] : currentShop.addressLine1,
+        addressLine2: data.containsKey('addressLine2') ? data['addressLine2'] : currentShop.addressLine2,
+        phoneNumber: data.containsKey('phoneNumber') ? data['phoneNumber'] : currentShop.phoneNumber,
+        upiId: data.containsKey('upiId') ? data['upiId'] : currentShop.upiId,
+        footerText: data.containsKey('footerText') ? data['footerText'] : currentShop.footerText,
+      );
+
+      box.put('shop_details', updatedShop);
       print('CloudSyncService: Business info synced from cloud.');
     }, onError: (e) => print('CloudSyncService: Shop listener error: $e'));
 
@@ -197,11 +215,23 @@ class CloudSyncService {
     }, SetOptions(merge: true));
 
     // Business Info
+    final shop = shopBox.get('shop_details') as ShopModel? ??
+        const ShopModel(
+          name: 'Dinesh Shop',
+          addressLine1: 'Samrajpet, Mecheri',
+          addressLine2: 'Salem - 636453',
+          phoneNumber: '+917010674588',
+          upiId: 'dineshsowndar@oksbi',
+          footerText: 'Thank you, Visit again!!!',
+        );
+
     await firestore.doc('business_info').set({
-      'shopName': shopBox.get('shopName', defaultValue: 'My Shop'),
-      'address': shopBox.get('address', defaultValue: '123 Main St'),
-      'phone': shopBox.get('phone', defaultValue: '555-0123'),
-      'taxRate': shopBox.get('taxRate', defaultValue: 0.0),
+      'shopName': shop.name,
+      'addressLine1': shop.addressLine1,
+      'addressLine2': shop.addressLine2,
+      'phoneNumber': shop.phoneNumber,
+      'upiId': shop.upiId,
+      'footerText': shop.footerText,
     }, SetOptions(merge: true));
   }
 }

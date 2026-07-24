@@ -12,7 +12,7 @@ import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../../../auth/presentation/bloc/auth_event.dart';
 import '../../../../core/data/hive_database.dart';
 import '../../../../core/services/cloud_sync_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../../auth/domain/entities/role.dart';
 
 class SettingsPage extends StatefulWidget {

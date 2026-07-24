@@ -11,8 +11,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   static const String _cashierPinKey = 'cashier_pin';
   static const String _staffPinKey = 'staff_pin';
   static const String _defaultAdminPin = '1969';
-  static const String _defaultCashierPin = '1111';
-  static const String _defaultStaffPin = '2222';
+  static const String _defaultCashierPin = '1234';
+  static const String _defaultStaffPin = '0000';
 
   AuthBloc() : super(const AuthState()) {
     on<CheckAuthEvent>(_onCheckAuth);
@@ -44,7 +44,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       CloudSyncService.start();
       emit(const AuthState(role: UserRole.staff, error: ''));
     } else {
-      emit(state.copyWith(error: 'Invalid PIN: ${event.pin}'));
+      emit(state.copyWith(error: 'Invalid PIN. Please try again.'));
     }
   }
 

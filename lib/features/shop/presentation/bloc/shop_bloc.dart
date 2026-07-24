@@ -36,7 +36,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
     result.fold(
       (failure) => emit(ShopError(failure.message)),
       (_) {
-        CloudSyncService.syncAll();
+        CloudSyncService.pushAll();
         add(LoadShopEvent());
         emit(ShopOperationSuccess());
       },

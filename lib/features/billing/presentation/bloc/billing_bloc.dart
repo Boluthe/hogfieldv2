@@ -7,6 +7,7 @@ import '../../../../core/utils/printer_helper.dart';
 import '../../../../core/data/hive_database.dart';
 import 'package:uuid/uuid.dart';
 import '../../data/models/order_model.dart';
+import '../../../../core/services/cloud_sync_service.dart';
 
 part 'billing_event.dart';
 part 'billing_state.dart';
@@ -109,6 +110,7 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
     );
 
     await HiveDatabase.ordersBox.put(order.id, order);
+    CloudSyncService.pushAll();
 
     emit(const BillingState().copyWith(lastOrder: order));
   }

@@ -4,7 +4,7 @@ import '../../../../core/error/failure.dart';
 import '../../domain/entities/product.dart';
 import '../../domain/repositories/product_repository.dart';
 import '../models/product_model.dart';
-import '../../../../core/data/hive_database.dart';
+import '../../../../core/services/cloud_sync_service.dart';
 
 class ProductRepositoryImpl implements ProductRepository {
   @override
@@ -38,6 +38,7 @@ class ProductRepositoryImpl implements ProductRepository {
       final box = HiveDatabase.productBox;
       final model = ProductModel.fromEntity(product);
       await box.put(model.id, model); 
+      CloudSyncService.pushAll();
       return const Right(null);
     } catch (e) {
       return Left(CacheFailure(e.toString()));
@@ -50,6 +51,7 @@ class ProductRepositoryImpl implements ProductRepository {
       final box = HiveDatabase.productBox;
       final model = ProductModel.fromEntity(product);
       await box.put(model.id, model);
+      CloudSyncService.pushAll();
       return const Right(null);
     } catch (e) {
       return Left(CacheFailure(e.toString()));
@@ -61,6 +63,7 @@ class ProductRepositoryImpl implements ProductRepository {
     try {
       final box = HiveDatabase.productBox;
       await box.delete(id);
+      CloudSyncService.pushAll();
       return const Right(null);
     } catch (e) {
       return Left(CacheFailure(e.toString()));
