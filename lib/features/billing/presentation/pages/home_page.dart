@@ -8,6 +8,10 @@ import '../../../billing/presentation/bloc/billing_bloc.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/primary_button.dart';
 import '../../domain/entities/cart_item.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
+import '../../../auth/presentation/bloc/auth_event.dart';
+import '../../../auth/presentation/bloc/auth_state.dart';
+import '../../../auth/domain/entities/role.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -106,18 +110,23 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomSheet:
-          BlocBuilder<BillingBloc, BillingState>(builder: (context, state) {
-        return PrimaryButton(
-          onPressed: state.cartItems.isEmpty
-              ? null
-              : () async {
-                  _scannerController.stop();
-                  await context.push('/checkout');
-                  if (_isCameraOn && mounted) _scannerController.start();
-                },
-          icon: Icons.payment,
-          label: 'Review Order',
-        );
+          BlocBuilder<AuthBloc, AuthState>(builder: (context, authState) {
+        if (authState.role == UserRole.staff) {
+          return const SizedBox.shrink(); // Hide checkout for staff
+        }
+        return BlocBuilder<BillingBloc, BillingState>(builder: (context, state) {
+          return PrimaryButton(
+            onPressed: state.cartItems.isEmpty
+                ? null
+                : () async {
+                    _scannerController.stop();
+                    await context.push('/home/checkout');
+                    if (_isCameraOn && mounted) _scannerController.start();
+                  },
+            icon: Icons.payment,
+            label: 'Review Order',
+          );
+        });
       }),
     );
   }
@@ -140,6 +149,14 @@ class _HomePageState extends State<HomePage> {
             right: 16,
             child: Column(
               children: [
+                _buildOverlayButton(
+                  icon: Icons.lock_outline,
+                  onPressed: () {
+                    context.read<AuthBloc>().add(LogoutEvent());
+                    context.go('/login');
+                  },
+                ),
+                const SizedBox(height: 16),
                 _buildOverlayButton(
                   icon: Icons.settings,
                   onPressed: () async {
