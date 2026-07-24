@@ -166,6 +166,8 @@ class _ProductListPageState extends State<ProductListPage> {
                       const SizedBox(height: 12),
                   itemBuilder: (context, index) {
                     final product = filteredProducts[index];
+                    final isLowStock = (product.unitType == 'bulk' && product.stock < 10) ||
+                                       (product.unitType == 'pieces' && product.stock < 20);
                     return Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -193,6 +195,12 @@ class _ProductListPageState extends State<ProductListPage> {
                                       fontSize: 16),
                                 ),
                                 const SizedBox(height: 4),
+                                Text(
+                                  'Stock: ${product.stock} ${product.unitType}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: isLowStock ? Colors.red : Colors.grey[600]),
+                                ),
                                 Text(
                                   '₦${product.price.toStringAsFixed(2)}',
                                   style: TextStyle(

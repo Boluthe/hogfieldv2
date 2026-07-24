@@ -23,6 +23,8 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
   late TextEditingController _phoneController;
   late TextEditingController _upiController;
   late TextEditingController _footerController;
+  late TextEditingController _taxNameController;
+  late TextEditingController _taxRateController;
 
   @override
   void initState() {
@@ -33,6 +35,8 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
     _phoneController = TextEditingController();
     _upiController = TextEditingController();
     _footerController = TextEditingController();
+    _taxNameController = TextEditingController();
+    _taxRateController = TextEditingController();
 
     // Load shop data
     context.read<ShopBloc>().add(LoadShopEvent());
@@ -46,6 +50,8 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
       _phoneController.text = shop.phoneNumber;
       _upiController.text = shop.upiId;
       _footerController.text = shop.footerText;
+      _taxNameController.text = shop.taxName;
+      _taxRateController.text = shop.taxRate.toString();
     }
   }
 
@@ -57,6 +63,8 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
     _phoneController.dispose();
     _upiController.dispose();
     _footerController.dispose();
+    _taxNameController.dispose();
+    _taxRateController.dispose();
     super.dispose();
   }
 
@@ -69,6 +77,8 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
         phoneNumber: _phoneController.text,
         upiId: _upiController.text,
         footerText: _footerController.text,
+        taxName: _taxNameController.text,
+        taxRate: double.tryParse(_taxRateController.text) ?? 0.0,
       );
 
       context.read<ShopBloc>().add(UpdateShopEvent(shop));
@@ -172,6 +182,37 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                       hint: 'Thank you, Visit again!!!',
                       maxLines: 2,
                       maxLength: 60,
+                    ),
+                    const SizedBox(height: 15),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const InputLabel(text: 'Tax Name'),
+                              _buildTextField(
+                                controller: _taxNameController,
+                                hint: 'e.g. VAT',
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const InputLabel(text: 'Tax Rate (%)'),
+                              _buildTextField(
+                                controller: _taxRateController,
+                                hint: 'e.g. 7.5',
+                                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

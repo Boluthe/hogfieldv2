@@ -6,7 +6,8 @@ class Product extends Equatable {
   final String name;
   final String barcode;
   final double price;
-  final int stock; // Optional implementation detail
+  final int stock;
+  final String unitType; // 'pieces' or 'bulk'
 
   const Product({
     required this.id,
@@ -14,8 +15,27 @@ class Product extends Equatable {
     required this.barcode,
     required this.price,
     this.stock = 0,
+    this.unitType = 'pieces',
   });
 
+  Product copyWith({
+    String? id,
+    String? name,
+    String? barcode,
+    double? price,
+    int? stock,
+    String? unitType,
+  }) {
+    return Product(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      barcode: barcode ?? this.barcode,
+      price: price ?? this.price,
+      stock: stock ?? this.stock,
+      unitType: unitType ?? this.unitType,
+    );
+  }
+
   @override
-  List<Object?> get props => [id, name, barcode, price, stock];
+  List<Object?> get props => [id, name, barcode, price, stock, unitType];
 }

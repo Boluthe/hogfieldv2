@@ -7,6 +7,8 @@ class Shop extends Equatable {
   final String phoneNumber;
   final String upiId;
   final String footerText;
+  final double taxRate; // e.g. 7.5
+  final String taxName; // e.g. "VAT"
 
   const Shop({
     this.name = '',
@@ -15,6 +17,8 @@ class Shop extends Equatable {
     this.phoneNumber = '',
     this.upiId = '',
     this.footerText = '',
+    this.taxRate = 0.0,
+    this.taxName = 'Tax',
   });
 
   Shop copyWith({
@@ -24,6 +28,8 @@ class Shop extends Equatable {
     String? phoneNumber,
     String? upiId,
     String? footerText,
+    double? taxRate,
+    String? taxName,
   }) {
     return Shop(
       name: name ?? this.name,
@@ -37,5 +43,5 @@ class Shop extends Equatable {
 
   @override
   List<Object?> get props =>
-      [name, addressLine1, addressLine2, phoneNumber, upiId, footerText];
+      [name, addressLine1, addressLine2, phoneNumber, upiId, footerText, taxRate, taxName];
 }

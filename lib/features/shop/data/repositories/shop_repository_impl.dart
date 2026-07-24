@@ -23,7 +23,9 @@ class ShopRepositoryImpl implements ShopRepository {
             addressLine2: 'Salem - 636453',
             phoneNumber: '+917010674588',
             upiId: 'dineshsowndar@oksbi',
-            footerText: 'Thank you, Visit again!!!'));
+            footerText: 'Thank you, Visit again!!!',
+            taxRate: 0.0,
+            taxName: 'VAT'));
       }
     } catch (e) {
       return Left(CacheFailure(e.toString()));

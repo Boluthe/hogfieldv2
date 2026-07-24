@@ -20,6 +20,9 @@ class ProductModel extends Product {
   @override
   @HiveField(4)
   final int stock;
+  @override
+  @HiveField(5)
+  final String unitType;
 
   const ProductModel({
     required this.id,
@@ -27,12 +30,14 @@ class ProductModel extends Product {
     required this.barcode,
     required this.price,
     required this.stock,
+    required this.unitType,
   }) : super(
           id: id,
           name: name,
           barcode: barcode,
           price: price,
           stock: stock,
+          unitType: unitType,
         );
 
   factory ProductModel.fromEntity(Product product) {
@@ -42,6 +47,7 @@ class ProductModel extends Product {
       barcode: product.barcode,
       price: product.price,
       stock: product.stock,
+      unitType: product.unitType,
     );
   }
 
@@ -52,6 +58,7 @@ class ProductModel extends Product {
       barcode: barcode,
       price: price,
       stock: stock,
+      unitType: unitType,
     );
   }
 
@@ -62,6 +69,7 @@ class ProductModel extends Product {
       barcode: json['barcode'] as String,
       price: (json['price'] as num).toDouble(),
       stock: json['stock'] as int,
+      unitType: json['unitType'] as String? ?? 'pieces',
     );
   }
 
@@ -72,6 +80,7 @@ class ProductModel extends Product {
       'barcode': barcode,
       'price': price,
       'stock': stock,
+      'unitType': unitType,
     };
   }
 }

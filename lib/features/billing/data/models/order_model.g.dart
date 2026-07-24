@@ -22,6 +22,7 @@ class OrderModelAdapter extends TypeAdapter<OrderModel> {
       items: (fields[2] as List).cast<OrderItemModel>(),
       subtotal: fields[3] as double,
       discount: fields[4] as double,
+      tax: fields[6] as double,
       total: fields[5] as double,
     );
   }
@@ -29,7 +30,7 @@ class OrderModelAdapter extends TypeAdapter<OrderModel> {
   @override
   void write(BinaryWriter writer, OrderModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class OrderModelAdapter extends TypeAdapter<OrderModel> {
       ..writeByte(4)
       ..write(obj.discount)
       ..writeByte(5)
-      ..write(obj.total);
+      ..write(obj.total)
+      ..writeByte(6)
+      ..write(obj.tax);
   }
 
   @override

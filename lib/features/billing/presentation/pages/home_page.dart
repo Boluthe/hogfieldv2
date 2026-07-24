@@ -12,6 +12,8 @@ import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../../../auth/presentation/bloc/auth_event.dart';
 import '../../../auth/presentation/bloc/auth_state.dart';
 import '../../../auth/domain/entities/role.dart';
+import '../../../../core/data/hive_database.dart';
+import '../../../product/data/models/product_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,6 +30,7 @@ class _HomePageState extends State<HomePage> {
 
   bool _isCameraOn = true;
   bool _isFlashOn = false;
+  TextEditingController? _searchController;
 
   // Cooldown mapping to prevent rapid firing of the same barcode
   final Map<String, DateTime> _lastScanTimes = {};
@@ -170,11 +173,61 @@ class _HomePageState extends State<HomePage> {
             const Icon(Icons.admin_panel_settings, size: 80, color: AppTheme.primaryColor),
             const SizedBox(height: 24),
             const Text('Welcome, Admin', textAlign: TextAlign.center, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 24),
+            
+            // Low Stock Alert
+            Builder(
+              builder: (context) {
+                final lowStockCount = HiveDatabase.productBox.values.where((p) {
+                  if (p.unitType == 'bulk' && p.stock < 10) return true;
+                  if (p.unitType == 'pieces' && p.stock < 20) return true;
+                  return false;
+                }).length;
+
+                if (lowStockCount > 0) {
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: 24),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.red[50],
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.red[200]!),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.warning_amber_rounded, color: Colors.red, size: 28),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text('Low Stock Alert', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red)),
+                              Text('$lowStockCount item(s) are running low on stock!', style: const TextStyle(color: Colors.red, fontSize: 12)),
+                            ],
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => context.push('/products'),
+                          child: const Text('View', style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+                        )
+                      ],
+                    ),
+                  );
+                }
+                return const SizedBox.shrink();
+              }
+            ),
             const SizedBox(height: 48),
             PrimaryButton(
               icon: Icons.bar_chart,
               label: 'Sales Analytics',
               onPressed: () => context.push('/home/sales_history'),
+            ),
+            const SizedBox(height: 16),
+            PrimaryButton(
+              icon: Icons.percent,
+              label: 'Manage Discounts',
+              onPressed: () => context.push('/manage_discounts'),
             ),
             const SizedBox(height: 16),
             PrimaryButton(
@@ -390,6 +443,59 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(
               color: Colors.grey.withValues(alpha: 0.3),
               borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+
+          // Search Bar
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+            child: Autocomplete<ProductModel>(
+              optionsBuilder: (TextEditingValue textEditingValue) {
+                if (textEditingValue.text.isEmpty) {
+                  return const Iterable<ProductModel>.empty();
+                }
+                return HiveDatabase.productBox.values.where((ProductModel product) {
+                  return product.name
+                      .toLowerCase()
+                      .contains(textEditingValue.text.toLowerCase());
+                });
+              },
+              displayStringForOption: (ProductModel option) => option.name,
+              onSelected: (ProductModel selection) async {
+                final hasVibrator = await Vibration.hasVibrator();
+                if (hasVibrator == true) {
+                  Vibration.vibrate();
+                }
+                if (mounted) {
+                  context.read<BillingBloc>().add(ScanBarcodeEvent(selection.barcode));
+                }
+                // Clear the search bar after selection so they can search again
+                _searchController?.clear();
+              },
+              fieldViewBuilder: (context, textEditingController, focusNode, onFieldSubmitted) {
+                _searchController = textEditingController;
+                return TextField(
+                  controller: textEditingController,
+                  focusNode: focusNode,
+                  decoration: InputDecoration(
+                    hintText: 'Search product by name...',
+                    prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.clear, color: Colors.grey),
+                      onPressed: () {
+                        textEditingController.clear();
+                      },
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey[100],
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  ),
+                );
+              },
             ),
           ),
 

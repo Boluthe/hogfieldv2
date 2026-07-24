@@ -31,8 +31,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
         canPop: false,
         onPopInvokedWithResult: (bool didPop, dynamic result) {
           if (didPop) return;
-          context.read<BillingBloc>().add(ClearCartEvent());
-          context.go('/home');
+          context.pop();
         },
         child: Scaffold(
           appBar: AppBar(
@@ -45,8 +44,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               icon: Icon(Icons.chevron_left,
                   size: 28, color: Theme.of(context).primaryColor),
               onPressed: () {
-                context.read<BillingBloc>().add(ClearCartEvent());
-                context.go('/home');
+                context.pop();
               },
             ),
           ),
@@ -252,6 +250,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                         Text('SUBTOTAL', style: TextStyle(fontSize: 10, color: Colors.grey[400], fontWeight: FontWeight.bold)),
                                         if (billingState.discountAmount > 0)
                                           Text('DISCOUNT', style: TextStyle(fontSize: 10, color: Colors.red[400], fontWeight: FontWeight.bold)),
+                                        if (billingState.taxAmount > 0)
+                                          Text('TAX (${billingState.taxRate}%)', style: TextStyle(fontSize: 10, color: Colors.grey[400], fontWeight: FontWeight.bold)),
                                         Text(
                                           'GRAND TOTAL',
                                           style: TextStyle(
@@ -269,6 +269,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                         Text('₦${billingState.subtotal.toStringAsFixed(2)}', style: TextStyle(fontSize: 12, color: Colors.grey[600], fontWeight: FontWeight.bold)),
                                         if (billingState.discountAmount > 0)
                                           Text('-₦${billingState.discountAmount.toStringAsFixed(2)}', style: TextStyle(fontSize: 12, color: Colors.red[400], fontWeight: FontWeight.bold)),
+                                        if (billingState.taxAmount > 0)
+                                          Text('+₦${billingState.taxAmount.toStringAsFixed(2)}', style: TextStyle(fontSize: 12, color: Colors.grey[600], fontWeight: FontWeight.bold)),
                                         Text(
                                           '₦${billingState.totalAmount.toStringAsFixed(2)}',
                                           style: const TextStyle(

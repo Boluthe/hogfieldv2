@@ -22,6 +22,8 @@ class _AddProductPageState extends State<AddProductPage> {
   String _name = '';
   String _barcode = '';
   double _price = 0.0;
+  int _stock = 0;
+  String _unitType = 'pieces';
 
   void _scanBarcode() async {
     final result = await context.push<String>('/scanner');
@@ -55,6 +57,8 @@ class _AddProductPageState extends State<AddProductPage> {
         name: _name,
         barcode: _barcode,
         price: _price,
+        stock: _stock,
+        unitType: _unitType,
       );
 
       context.read<ProductBloc>().add(AddProduct(product));
@@ -143,6 +147,42 @@ class _AddProductPageState extends State<AddProductPage> {
                     ),
                     validator: AppValidators.price,
                     onSaved: (value) => _price = double.parse(value!),
+                  ),
+                  const SizedBox(height: 24),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const InputLabel(text: 'Initial Stock'),
+                            TextFormField(
+                              keyboardType: TextInputType.number,
+                              decoration: const InputDecoration(hintText: '0'),
+                              validator: (value) => value!.isEmpty ? 'Required' : null,
+                              onSaved: (value) => _stock = int.parse(value!),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const InputLabel(text: 'Unit Type'),
+                            DropdownButtonFormField<String>(
+                              value: _unitType,
+                              items: const [
+                                DropdownMenuItem(value: 'pieces', child: Text('Pieces')),
+                                DropdownMenuItem(value: 'bulk', child: Text('Bulk / Carton')),
+                              ],
+                              onChanged: (value) => setState(() => _unitType = value!),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

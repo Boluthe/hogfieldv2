@@ -21,7 +21,15 @@ class BillingState extends Equatable {
 
   double get subtotal => cartItems.fold(0, (sum, item) => sum + item.total);
   double get discountAmount => subtotal * discountPercentage;
-  double get totalAmount => subtotal - discountAmount;
+  
+  double get taxRate {
+    final shop = HiveDatabase.shopBox.get('shop_details');
+    return shop?.taxRate ?? 0.0;
+  }
+  
+  double get taxAmount => (subtotal - discountAmount) * (taxRate / 100);
+  
+  double get totalAmount => (subtotal - discountAmount) + taxAmount;
 
   BillingState copyWith({
     List<CartItem>? cartItems,

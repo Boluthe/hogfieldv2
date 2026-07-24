@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../domain/entities/cart_item.dart';
 import 'package:billing_app/features/product/domain/entities/product.dart';
+import '../../../../features/product/data/models/product_model.dart';
 import 'package:billing_app/features/product/domain/usecases/product_usecases.dart';
 import '../../../../core/utils/printer_helper.dart';
 import '../../../../core/data/hive_database.dart';
@@ -88,8 +89,13 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
   }
 
   void _onApplyDiscountCode(ApplyDiscountCodeEvent event, Emitter<BillingState> emit) {
-    if (event.code.toUpperCase() == 'FAMBAKARE') {
-      emit(state.copyWith(discountPercentage: 1.0, discountCode: event.code));
+    final code = event.code.toUpperCase();
+    
+    // Check dynamic discountBox
+    final discount = HiveDatabase.discountBox.values.where((d) => d.code.toUpperCase() == code).firstOrNull;
+    
+    if (discount != null) {
+      emit(state.copyWith(discountPercentage: discount.percentage, discountCode: code));
     } else {
       emit(state.copyWith(error: 'Invalid discount code', clearError: false));
       emit(state.copyWith(clearError: true));
@@ -106,8 +112,20 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
       items: items,
       subtotal: state.subtotal,
       discount: state.discountAmount,
+      tax: state.taxAmount,
       total: state.totalAmount,
     );
+
+    // Deduct inventory
+    for (final cartItem in state.cartItems) {
+      final product = HiveDatabase.productBox.get(cartItem.product.id);
+      if (product != null) {
+        final updatedProduct = product.toEntity().copyWith(
+          stock: product.stock - cartItem.quantity
+        );
+        await HiveDatabase.productBox.put(product.id, ProductModel.fromEntity(updatedProduct));
+      }
+    }
 
     await HiveDatabase.ordersBox.put(order.id, order);
     CloudSyncService.pushAll();

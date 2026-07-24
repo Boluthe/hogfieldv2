@@ -11,6 +11,7 @@ import '../../features/billing/presentation/pages/checkout_page.dart';
 import '../../features/billing/presentation/pages/receipt_preview_page.dart';
 import '../../features/billing/presentation/pages/sales_history_page.dart';
 import '../../features/product/domain/entities/product.dart';
+import '../../features/billing/presentation/pages/manage_discounts_page.dart';
 
 final router = GoRouter(
   initialLocation: '/login',
@@ -44,6 +45,10 @@ final router = GoRouter(
     GoRoute(
       path: '/settings',
       builder: (context, state) => const SettingsPage(),
+    ),
+    GoRoute(
+      path: '/manage_discounts',
+      builder: (context, state) => const ManageDiscountsPage(),
     ),
     GoRoute(
       path: '/products',

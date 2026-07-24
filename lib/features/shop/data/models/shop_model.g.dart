@@ -23,13 +23,15 @@ class ShopModelAdapter extends TypeAdapter<ShopModel> {
       phoneNumber: fields[3] as String,
       upiId: fields[4] as String,
       footerText: fields[5] as String,
+      taxRate: fields[6] as double,
+      taxName: fields[7] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, ShopModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -41,7 +43,11 @@ class ShopModelAdapter extends TypeAdapter<ShopModel> {
       ..writeByte(4)
       ..write(obj.upiId)
       ..writeByte(5)
-      ..write(obj.footerText);
+      ..write(obj.footerText)
+      ..writeByte(6)
+      ..write(obj.taxRate)
+      ..writeByte(7)
+      ..write(obj.taxName);
   }
 
   @override

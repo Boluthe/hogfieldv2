@@ -23,12 +23,16 @@ class OrderModel {
   @HiveField(5)
   final double total;
 
+  @HiveField(6)
+  final double tax;
+
   OrderModel({
     required this.id,
     required this.date,
     required this.items,
     required this.subtotal,
     required this.discount,
+    required this.tax,
     required this.total,
   });
 
@@ -41,6 +45,7 @@ class OrderModel {
           .toList(),
       subtotal: (json['subtotal'] as num).toDouble(),
       discount: (json['discount'] as num).toDouble(),
+      tax: (json['tax'] as num?)?.toDouble() ?? 0.0,
       total: (json['total'] as num).toDouble(),
     );
   }
@@ -52,6 +57,7 @@ class OrderModel {
       'items': items.map((e) => e.toJson()).toList(),
       'subtotal': subtotal,
       'discount': discount,
+      'tax': tax,
       'total': total,
     };
   }

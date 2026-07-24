@@ -4,6 +4,7 @@ import '../data/hive_database.dart';
 import '../../features/product/data/models/product_model.dart';
 import '../../features/billing/data/models/order_model.dart';
 import '../../features/shop/data/models/shop_model.dart';
+import '../../features/billing/data/models/discount_model.dart';
 
 /// CloudSyncService implements an Offline-First hybrid architecture:
 ///
@@ -21,6 +22,7 @@ class CloudSyncService {
   static StreamSubscription<QuerySnapshot>? _ordersListener;
   static StreamSubscription<DocumentSnapshot>? _settingsListener;
   static StreamSubscription<DocumentSnapshot>? _shopListener;
+  static StreamSubscription<QuerySnapshot>? _discountsListener;
 
   /// Call this on successful login. Starts real-time listeners AND a
   /// periodic push timer so local data also flows up to the cloud.
@@ -35,6 +37,7 @@ class CloudSyncService {
     _ordersListener?.cancel();
     _settingsListener?.cancel();
     _shopListener?.cancel();
+    _discountsListener?.cancel();
     _pushTimer?.cancel();
     print('CloudSyncService: Stopped all listeners and timers.');
   }
@@ -117,6 +120,8 @@ class CloudSyncService {
             phoneNumber: '+917010674588',
             upiId: 'dineshsowndar@oksbi',
             footerText: 'Thank you, Visit again!!!',
+            taxRate: 0.0,
+            taxName: 'VAT',
           );
 
       final updatedShop = ShopModel(
@@ -126,11 +131,28 @@ class CloudSyncService {
         phoneNumber: data.containsKey('phoneNumber') ? data['phoneNumber'] : currentShop.phoneNumber,
         upiId: data.containsKey('upiId') ? data['upiId'] : currentShop.upiId,
         footerText: data.containsKey('footerText') ? data['footerText'] : currentShop.footerText,
+        taxRate: data.containsKey('taxRate') ? (data['taxRate'] as num).toDouble() : currentShop.taxRate,
+        taxName: data.containsKey('taxName') ? data['taxName'] : currentShop.taxName,
       );
 
       box.put('shop_details', updatedShop);
       print('CloudSyncService: Business info synced from cloud.');
     }, onError: (e) => print('CloudSyncService: Shop listener error: $e'));
+
+    // --- Discounts ---
+    _discountsListener?.cancel();
+    _discountsListener = FirebaseFirestore.instance.collection('discounts').snapshots().listen((snapshot) async {
+      final Map<String, DiscountModel> remoteDiscounts = {};
+      for (var doc in snapshot.docs) {
+        try {
+          final d = DiscountModel.fromJson(doc.data());
+          remoteDiscounts[d.code] = d;
+        } catch (_) {}
+      }
+      await HiveDatabase.discountBox.clear();
+      await HiveDatabase.discountBox.putAll(remoteDiscounts);
+      print('CloudSyncService: Discounts updated from cloud.');
+    });
 
     print('CloudSyncService: Real-time listeners started.');
   }
@@ -160,6 +182,7 @@ class CloudSyncService {
         _pushProducts(),
         _pushOrders(),
         _pushSettings(),
+        _pushDiscounts(),
       ]);
       print('CloudSyncService: Push completed successfully.');
     } catch (e) {
@@ -172,7 +195,7 @@ class CloudSyncService {
   static Future<void> _pushProducts() async {
     final box = HiveDatabase.productBox;
     if (box.isEmpty) return;
-    final firestore = FirebaseFirestore.instance.collection('products');
+    final collection = FirebaseFirestore.instance.collection('products');
 
     // Firestore batch write limit is 500 docs. Chunk if needed.
     final items = box.values.toList();
@@ -180,7 +203,7 @@ class CloudSyncService {
       final chunk = items.sublist(i, i + 400 > items.length ? items.length : i + 400);
       final batch = FirebaseFirestore.instance.batch();
       for (var p in chunk) {
-        batch.set(firestore.doc(p.id), p.toJson(), SetOptions(merge: true));
+        batch.set(collection.doc(p.id), p.toJson(), SetOptions(merge: true));
       }
       await batch.commit();
     }
@@ -223,6 +246,8 @@ class CloudSyncService {
           phoneNumber: '+917010674588',
           upiId: 'dineshsowndar@oksbi',
           footerText: 'Thank you, Visit again!!!',
+          taxRate: 0.0,
+          taxName: 'VAT',
         );
 
     await firestore.doc('business_info').set({
@@ -232,6 +257,25 @@ class CloudSyncService {
       'phoneNumber': shop.phoneNumber,
       'upiId': shop.upiId,
       'footerText': shop.footerText,
+      'taxRate': shop.taxRate,
+      'taxName': shop.taxName,
     }, SetOptions(merge: true));
+  }
+
+  static Future<void> _pushDiscounts() async {
+    final box = HiveDatabase.discountBox;
+    final batch = FirebaseFirestore.instance.batch();
+
+    final snapshot = await FirebaseFirestore.instance.collection('discounts').get();
+    for (var doc in snapshot.docs) {
+      batch.delete(doc.reference);
+    }
+
+    for (var discount in box.values) {
+      final docRef = FirebaseFirestore.instance.collection('discounts').doc(discount.code);
+      batch.set(docRef, discount.toJson());
+    }
+
+    await batch.commit();
   }
 }

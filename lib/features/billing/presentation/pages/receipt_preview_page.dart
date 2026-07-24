@@ -118,6 +118,14 @@ class ReceiptPreviewPage extends StatelessWidget {
                                     Text('-₦${order.discount.toStringAsFixed(2)}', style: const TextStyle(color: Colors.red)),
                                   ],
                                 ),
+                              if (order.tax > 0)
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text('Tax', style: TextStyle(color: Colors.grey)),
+                                    Text('+₦${order.tax.toStringAsFixed(2)}'),
+                                  ],
+                                ),
                               const SizedBox(height: 8),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

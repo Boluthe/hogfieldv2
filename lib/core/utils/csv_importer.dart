@@ -40,6 +40,7 @@ class CsvImporter {
             barcode: barcode,
             price: price,
             stock: stock,
+            unitType: 'pieces',
           );
 
           productsToInsert[product.id] = product;
