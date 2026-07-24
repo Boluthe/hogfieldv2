@@ -23,6 +23,15 @@ class ProductModel extends Product {
   @override
   @HiveField(5, defaultValue: 'pieces')
   final String unitType;
+  @override
+  @HiveField(6)
+  final int? lowStockThreshold;
+  @override
+  @HiveField(7, defaultValue: 1)
+  final int piecesPerCarton;
+  @override
+  @HiveField(8)
+  final String? parentProductId;
 
   const ProductModel({
     required this.id,
@@ -31,6 +40,9 @@ class ProductModel extends Product {
     required this.price,
     required this.stock,
     required this.unitType,
+    this.lowStockThreshold,
+    this.piecesPerCarton = 1,
+    this.parentProductId,
   }) : super(
           id: id,
           name: name,
@@ -38,6 +50,9 @@ class ProductModel extends Product {
           price: price,
           stock: stock,
           unitType: unitType,
+          lowStockThreshold: lowStockThreshold,
+          piecesPerCarton: piecesPerCarton,
+          parentProductId: parentProductId,
         );
 
   factory ProductModel.fromEntity(Product product) {
@@ -48,6 +63,9 @@ class ProductModel extends Product {
       price: product.price,
       stock: product.stock,
       unitType: product.unitType,
+      lowStockThreshold: product.lowStockThreshold,
+      piecesPerCarton: product.piecesPerCarton,
+      parentProductId: product.parentProductId,
     );
   }
 
@@ -59,6 +77,9 @@ class ProductModel extends Product {
       price: price,
       stock: stock,
       unitType: unitType,
+      lowStockThreshold: lowStockThreshold,
+      piecesPerCarton: piecesPerCarton,
+      parentProductId: parentProductId,
     );
   }
 
@@ -70,6 +91,9 @@ class ProductModel extends Product {
       price: (json['price'] as num).toDouble(),
       stock: json['stock'] as int,
       unitType: json['unitType'] as String? ?? 'pieces',
+      lowStockThreshold: json['lowStockThreshold'] as int?,
+      piecesPerCarton: json['piecesPerCarton'] as int? ?? 1,
+      parentProductId: json['parentProductId'] as String?,
     );
   }
 
@@ -81,6 +105,9 @@ class ProductModel extends Product {
       'price': price,
       'stock': stock,
       'unitType': unitType,
+      'lowStockThreshold': lowStockThreshold,
+      'piecesPerCarton': piecesPerCarton,
+      'parentProductId': parentProductId,
     };
   }
 }

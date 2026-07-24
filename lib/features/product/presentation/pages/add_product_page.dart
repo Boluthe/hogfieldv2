@@ -24,6 +24,9 @@ class _AddProductPageState extends State<AddProductPage> {
   double _price = 0.0;
   int _stock = 0;
   String _unitType = 'pieces';
+  int? _lowStockThreshold;
+  int _piecesPerCarton = 1;
+  String? _parentProductId;
   late TextEditingController _barcodeController;
 
   @override
@@ -73,6 +76,9 @@ class _AddProductPageState extends State<AddProductPage> {
         price: _price,
         stock: _stock,
         unitType: _unitType,
+        lowStockThreshold: _lowStockThreshold,
+        piecesPerCarton: _piecesPerCarton,
+        parentProductId: _parentProductId,
       );
 
       context.read<ProductBloc>().add(AddProduct(product));
@@ -197,6 +203,66 @@ class _AddProductPageState extends State<AddProductPage> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 24),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const InputLabel(text: 'Low Stock Alert Level (Optional)'),
+                            TextFormField(
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                hintText: _unitType == 'bulk' ? 'Default: 10' : 'Default: 20',
+                              ),
+                              onSaved: (value) => _lowStockThreshold = int.tryParse(value ?? ''),
+                            ),
+                          ],
+                        ),
+                      ),
+                      if (_unitType == 'pieces') ...[
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const InputLabel(text: 'Pieces per Carton'),
+                              TextFormField(
+                                initialValue: '1',
+                                keyboardType: TextInputType.number,
+                                decoration: const InputDecoration(hintText: 'e.g. 12'),
+                                validator: (val) => (val == null || val.isEmpty) ? 'Required' : null,
+                                onSaved: (value) => _piecesPerCarton = int.parse(value!),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ]
+                    ],
+                  ),
+                  if (_unitType == 'pieces') ...[
+                    const SizedBox(height: 24),
+                    const InputLabel(text: 'Link to Bulk Carton Product (Optional)'),
+                    BlocBuilder<ProductBloc, ProductState>(
+                      builder: (context, state) {
+                        final bulkProducts = state.products.where((p) => p.unitType == 'bulk').toList();
+                        return DropdownButtonFormField<String?>(
+                          value: _parentProductId,
+                          isExpanded: true,
+                          hint: const Text('Select Bulk Product'),
+                          items: [
+                            const DropdownMenuItem<String?>(value: null, child: Text('None (Standalone)')),
+                            ...bulkProducts.map((p) => DropdownMenuItem<String?>(
+                                  value: p.id,
+                                  child: Text('${p.name} (Stock: ${p.stock})'),
+                                )),
+                          ],
+                          onChanged: (val) => setState(() => _parentProductId = val),
+                        );
+                      },
+                    ),
+                  ],
                 ],
               ),
             ),

@@ -8,6 +8,9 @@ class Product extends Equatable {
   final double price;
   final int stock;
   final String unitType; // 'pieces' or 'bulk'
+  final int? lowStockThreshold;
+  final int piecesPerCarton;
+  final String? parentProductId;
 
   const Product({
     required this.id,
@@ -16,6 +19,9 @@ class Product extends Equatable {
     required this.price,
     this.stock = 0,
     this.unitType = 'pieces',
+    this.lowStockThreshold,
+    this.piecesPerCarton = 1,
+    this.parentProductId,
   });
 
   Product copyWith({
@@ -25,6 +31,9 @@ class Product extends Equatable {
     double? price,
     int? stock,
     String? unitType,
+    int? lowStockThreshold,
+    int? piecesPerCarton,
+    String? parentProductId,
   }) {
     return Product(
       id: id ?? this.id,
@@ -33,9 +42,22 @@ class Product extends Equatable {
       price: price ?? this.price,
       stock: stock ?? this.stock,
       unitType: unitType ?? this.unitType,
+      lowStockThreshold: lowStockThreshold ?? this.lowStockThreshold,
+      piecesPerCarton: piecesPerCarton ?? this.piecesPerCarton,
+      parentProductId: parentProductId ?? this.parentProductId,
     );
   }
 
   @override
-  List<Object?> get props => [id, name, barcode, price, stock, unitType];
+  List<Object?> get props => [
+        id,
+        name,
+        barcode,
+        price,
+        stock,
+        unitType,
+        lowStockThreshold,
+        piecesPerCarton,
+        parentProductId,
+      ];
 }

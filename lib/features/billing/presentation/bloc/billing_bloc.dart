@@ -118,10 +118,34 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
 
     // Deduct inventory
     for (final cartItem in state.cartItems) {
-      final product = HiveDatabase.productBox.get(cartItem.product.id);
-      if (product != null) {
-        final updatedProduct = product.toEntity().copyWith(
-          stock: product.stock - cartItem.quantity
+      final productModel = HiveDatabase.productBox.get(cartItem.product.id);
+      if (productModel != null) {
+        final product = productModel.toEntity();
+        int availableStock = product.stock;
+
+        // Auto-breakdown check: piece product running short
+        if (product.unitType == 'pieces' &&
+            cartItem.quantity > availableStock &&
+            product.parentProductId != null) {
+          final parentModel = HiveDatabase.productBox.get(product.parentProductId!);
+          if (parentModel != null) {
+            final neededPieces = cartItem.quantity - availableStock;
+            final piecesPerCarton = product.piecesPerCarton <= 0 ? 1 : product.piecesPerCarton;
+            final cartonsToBreak = (neededPieces / piecesPerCarton).ceil();
+
+            // Decrement parent carton stock by cartonsToBreak
+            final updatedParent = parentModel.toEntity().copyWith(
+              stock: parentModel.stock - cartonsToBreak,
+            );
+            await HiveDatabase.productBox.put(updatedParent.id, ProductModel.fromEntity(updatedParent));
+
+            // Increase piece stock by cartonsToBreak * piecesPerCarton
+            availableStock += cartonsToBreak * piecesPerCarton;
+          }
+        }
+
+        final updatedProduct = product.copyWith(
+          stock: availableStock - cartItem.quantity,
         );
         await HiveDatabase.productBox.put(product.id, ProductModel.fromEntity(updatedProduct));
       }

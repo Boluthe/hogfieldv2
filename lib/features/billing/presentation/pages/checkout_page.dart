@@ -5,6 +5,9 @@ import 'package:go_router/go_router.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 
 import '../../../shop/presentation/bloc/shop_bloc.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
+import '../../../auth/domain/entities/role.dart';
+import '../../../../core/data/hive_database.dart';
 import '../bloc/billing_bloc.dart';
 
 class CheckoutPage extends StatefulWidget {
@@ -16,6 +19,61 @@ class CheckoutPage extends StatefulWidget {
 
 class _CheckoutPageState extends State<CheckoutPage> {
   final TextEditingController _discountController = TextEditingController();
+
+  void _applyDiscountWithAuth(BuildContext context) async {
+    final role = context.read<AuthBloc>().state.role;
+    final code = _discountController.text.trim();
+    if (code.isEmpty) return;
+
+    if (role == UserRole.cashier) {
+      final pinController = TextEditingController();
+      final isApproved = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Manager Authorization Required'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Enter Manager/Admin PIN to apply discount:'),
+              const SizedBox(height: 12),
+              TextField(
+                controller: pinController,
+                obscureText: true,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(hintText: 'Manager PIN'),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                final expectedPin = HiveDatabase.settingsBox.get('admin_pin', defaultValue: '1969');
+                if (pinController.text.trim() == expectedPin) {
+                  Navigator.pop(ctx, true);
+                } else {
+                  ScaffoldMessenger.of(ctx).showSnackBar(
+                    const SnackBar(content: Text('Invalid Manager PIN'), backgroundColor: Colors.red),
+                  );
+                }
+              },
+              child: const Text('Authorize'),
+            ),
+          ],
+        ),
+      );
+
+      if (isApproved != true) return;
+    }
+
+    if (context.mounted) {
+      context.read<BillingBloc>().add(ApplyDiscountCodeEvent(code));
+    }
+  }
 
   @override
   void dispose() {
@@ -161,9 +219,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                     backgroundColor: Colors.black87,
                                     foregroundColor: Colors.white,
                                   ),
-                                  onPressed: () {
-                                    context.read<BillingBloc>().add(ApplyDiscountCodeEvent(_discountController.text));
-                                  },
+                                  onPressed: () => _applyDiscountWithAuth(context),
                                   child: const Text('Apply'),
                                 ),
                               ],

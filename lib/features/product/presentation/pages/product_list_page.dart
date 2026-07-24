@@ -5,6 +5,9 @@ import '../bloc/product_bloc.dart';
 import '../../domain/entities/product.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/app_validators.dart';
+import '../../../../core/data/hive_database.dart';
+import '../../../../core/services/cloud_sync_service.dart';
+import '../../data/models/product_model.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage({super.key});
@@ -166,8 +169,8 @@ class _ProductListPageState extends State<ProductListPage> {
                       const SizedBox(height: 12),
                   itemBuilder: (context, index) {
                     final product = filteredProducts[index];
-                    final isLowStock = (product.unitType == 'bulk' && product.stock < 10) ||
-                                       (product.unitType == 'pieces' && product.stock < 20);
+                    final threshold = product.lowStockThreshold ?? (product.unitType == 'bulk' ? 10 : 20);
+                    final isLowStock = product.stock < threshold;
                     return Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -207,6 +210,28 @@ class _ProductListPageState extends State<ProductListPage> {
                                       fontWeight: FontWeight.w500,
                                       color: Colors.grey[600]),
                                 ),
+                                if (product.unitType == 'pieces' && product.parentProductId != null) ...[
+                                  const SizedBox(height: 6),
+                                  InkWell(
+                                    onTap: () => _unboxCarton(context, product),
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                      decoration: BoxDecoration(
+                                        color: Colors.orange.withValues(alpha: 0.1),
+                                        borderRadius: BorderRadius.circular(6),
+                                        border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
+                                      ),
+                                      child: const Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(Icons.unarchive_rounded, size: 14, color: Colors.orange),
+                                          SizedBox(width: 4),
+                                          Text('Unbox 1 Carton', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.orange)),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ]
                               ],
                             ),
                           ),
@@ -265,6 +290,36 @@ class _ProductListPageState extends State<ProductListPage> {
         child: const Icon(Icons.add, size: 32),
       ),
     );
+  }
+
+  void _unboxCarton(BuildContext context, Product pieceProduct) async {
+    final parentId = pieceProduct.parentProductId;
+    if (parentId == null) return;
+
+    final parentModel = HiveDatabase.productBox.get(parentId);
+    if (parentModel == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Linked Bulk Product not found!')),
+      );
+      return;
+    }
+
+    final piecesPerCarton = pieceProduct.piecesPerCarton <= 0 ? 1 : pieceProduct.piecesPerCarton;
+    
+    // Decrement parent carton stock by 1, increment piece product stock
+    final updatedParent = parentModel.toEntity().copyWith(stock: parentModel.stock - 1);
+    final updatedPiece = pieceProduct.copyWith(stock: pieceProduct.stock + piecesPerCarton);
+
+    await HiveDatabase.productBox.put(updatedParent.id, ProductModel.fromEntity(updatedParent));
+    await HiveDatabase.productBox.put(updatedPiece.id, ProductModel.fromEntity(updatedPiece));
+
+    CloudSyncService.pushAll();
+    if (context.mounted) {
+      context.read<ProductBloc>().add(LoadProducts());
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Unboxed 1 Carton of ${parentModel.name} (+$piecesPerCarton pieces)!')),
+      );
+    }
   }
 
   void _confirmDelete(BuildContext context, Product product) {

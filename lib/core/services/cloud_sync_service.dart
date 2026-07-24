@@ -178,8 +178,8 @@ class CloudSyncService {
     _isPushing = true;
 
     try {
+      await _pushProducts(); // Ensure product documents exist first
       await Future.wait([
-        _pushProducts(),
         _pushOrders(),
         _pushSettings(),
         _pushDiscounts(),
