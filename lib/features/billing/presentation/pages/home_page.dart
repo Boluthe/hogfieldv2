@@ -72,8 +72,21 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocListener<BillingBloc, BillingState>(
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, authState) {
+        if (authState.role == UserRole.none) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) context.go('/login');
+          });
+          return const Scaffold(backgroundColor: Colors.white, body: Center(child: CircularProgressIndicator()));
+        }
+
+        if (authState.role == UserRole.admin) {
+          return _buildAdminDashboard();
+        }
+
+        return Scaffold(
+          body: BlocListener<BillingBloc, BillingState>(
         listenWhen: (previous, current) =>
             previous.error != current.error && current.error != null,
         listener: (context, state) {
@@ -129,6 +142,50 @@ class _HomePageState extends State<HomePage> {
         });
       }),
     );
+    });
+  }
+
+  Widget _buildAdminDashboard() {
+    return Scaffold(
+      backgroundColor: Colors.grey[50],
+      appBar: AppBar(
+        title: const Text('Admin Dashboard', style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              context.read<AuthBloc>().add(LogoutEvent());
+              context.go('/login');
+            },
+          )
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Icon(Icons.admin_panel_settings, size: 80, color: AppTheme.primaryColor),
+            const SizedBox(height: 24),
+            const Text('Welcome, Admin', textAlign: TextAlign.center, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 48),
+            PrimaryButton(
+              icon: Icons.bar_chart,
+              label: 'Sales Analytics',
+              onPressed: () => context.push('/home/sales_history'),
+            ),
+            const SizedBox(height: 16),
+            PrimaryButton(
+              icon: Icons.settings,
+              label: 'System Settings',
+              onPressed: () => context.push('/settings'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _buildScannerSection() {
@@ -154,15 +211,6 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     context.read<AuthBloc>().add(LogoutEvent());
                     context.go('/login');
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildOverlayButton(
-                  icon: Icons.settings,
-                  onPressed: () async {
-                    _scannerController.stop();
-                    await context.push('/settings');
-                    if (_isCameraOn && mounted) _scannerController.start();
                   },
                 ),
                 const SizedBox(height: 16),

@@ -57,9 +57,11 @@ class _PinLoginPageState extends State<PinLoginPage> {
       child: Scaffold(
         backgroundColor: Colors.grey[50],
         body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
               const Icon(Icons.lock_outline, size: 60, color: AppTheme.primaryColor),
               const SizedBox(height: 16),
               const Text(
@@ -68,7 +70,7 @@ class _PinLoginPageState extends State<PinLoginPage> {
               ),
               const SizedBox(height: 8),
               const Text(
-                'Cashier or Staff Access',
+                'Admin, Cashier or Staff Access',
                 style: TextStyle(color: Colors.grey),
               ),
               const SizedBox(height: 32),
@@ -90,7 +92,9 @@ class _PinLoginPageState extends State<PinLoginPage> {
               ),
               const SizedBox(height: 48),
               _buildKeypad(),
-            ],
+                ],
+              ),
+            ),
           ),
         ),
       ),
