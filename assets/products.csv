@@ -1,0 +1,516 @@
+id,familyId,barcode,barcodeType,barcodeSource,barcodeStatus,confidence,name,brand,category,unit,packSize,price,stock,isBulk
+1,FAM-0001,745114646224,UPC_A,Manufacturer,VERIFIED,High,Sonia tomato mix 400g,Sonia,Pantry,Piece,1,850.00,150,false
+2,FAM-0002,10745114646221,ITF14,Manufacturer,VERIFIED,High,Sonia Tomato Seasoning Mix (Carton),Sonia,Pantry,Carton,24,17800.00,25,true
+3,FAM-0003,PRD-000002,CODE128,Internal,INTERNAL,Low,Gino Curry Powder (Sachet),Gino,Spices,Piece,1,550.00,200,false
+4,FAM-0004,CTN-000002,CODE128,Internal,INTERNAL,Low,Gino Curry Powder (Carton),Gino,Spices,Carton,24,10800.00,30,true
+5,FAM-0005,PRD-000003,CODE128,Internal,INTERNAL,Low,Gino Red Pepper Powder (Sachet),Gino,Spices,Piece,1,800.00,180,false
+6,FAM-0006,CTN-000003,CODE128,Internal,INTERNAL,Low,Gino Red Pepper Powder (Carton),Gino,Spices,Carton,24,17800.00,20,true
+7,FAM-0007,PRD-000004,CODE128,Internal,INTERNAL,Low,Gino Thyme Sachet (Roll),Gino,Spices,Piece,1,550.00,200,false
+8,FAM-0007,CTN-000004,CODE128,Internal,INTERNAL,Low,Gino Thyme Sachet (Carton),Gino,Spices,Carton,50,10800.00,30,true
+9,FAM-0008,786411642120,UPC_A,Manufacturer,VERIFIED,High,Ric-Giko Tomato Paste 70g (Roll),Generic,Pantry,Piece,1,800.00,150,false
+10,FAM-0009,CTN-000005,CODE128,Internal,INTERNAL,Low,Ric-Giko Tomato Paste (Carton),Generic,Pantry,Carton,24,17500.00,25,true
+11,FAM-0010,PRD-000006,CODE128,Internal,INTERNAL,Low,Devon King's Vegetable Oil Sachet,Devon King's,Pantry,Piece,1,1200.00,150,false
+12,FAM-0011,CTN-000006,CODE128,Internal,INTERNAL,Low,Devon King's Vegetable Oil (Carton),Devon King's,Pantry,Carton,24,22500.00,20,true
+13,FAM-0012,PRD-000007,CODE128,Internal,INTERNAL,Low,Costa Non-Dairy Creamer 400g,Costa,Dairy,Piece,1,2800.00,80,false
+14,FAM-0013,0800800209869,EAN13,Open Food Facts,VERIFIED,High,Dano Cool Cow Milk Powder 350g,Dano,Dairy,Piece,1,2950.00,120,false
+15,FAM-0014,CTN-000007,CODE128,Internal,INTERNAL,Low,Dano Cool Cow Milk Powder 350g (Carton),Dano,Dairy,Carton,24,65000.00,15,true
+16,FAM-0015,PRD-000008,CODE128,Internal,INTERNAL,Low,Cowbell Milk Powder 350g Refill,Cowbell,Dairy,Piece,1,2800.00,140,false
+17,FAM-0016,CTN-000008,CODE128,Internal,INTERNAL,Low,Cowbell Milk Powder 350g (Carton),Cowbell,Dairy,Carton,24,64500.00,15,true
+18,FAM-0017,PRD-000009,CODE128,Internal,INTERNAL,Low,Three Crowns Milk Powder 350g Refill,Three Crowns,Dairy,Piece,1,3000.00,130,false
+19,FAM-0018,CTN-000009,CODE128,Internal,INTERNAL,Low,Three Crowns Milk Powder 350g (Carton),Three Crowns,Dairy,Carton,24,68000.00,15,true
+20,FAM-0019,8710100103410,EAN13,Open Food Facts,VERIFIED,High,Quaker Oats 500g Tin,Quaker,Breakfast,Piece,1,3500.00,90,false
+21,FAM-0020,PRD-000010,CODE128,Internal,INTERNAL,Low,Golden Morn 950g Bag,Golden Morn,Breakfast,Piece,1,5500.00,100,false
+22,FAM-0021,CTN-000010,CODE128,Internal,INTERNAL,Low,Golden Morn 950g (Carton),Golden Morn,Breakfast,Carton,24,32000.00,12,true
+23,FAM-0022,PRD-000011,CODE128,Internal,INTERNAL,Low,KissKids Baby Diapers Size 2 (Roll),KissKids,Baby,Piece,1,1800.00,100,false
+24,FAM-0023,PRD-000012,CODE128,Internal,INTERNAL,Low,KissKids Baby Diapers Size 3 (Roll),KissKids,Baby,Piece,1,1800.00,100,false
+25,FAM-0024,PRD-000013,CODE128,Internal,INTERNAL,Low,KissKids Baby Diapers Size 4 (Roll),KissKids,Baby,Piece,1,1800.00,100,false
+26,FAM-0025,PRD-000014,CODE128,Internal,INTERNAL,Low,Softcare Baby Diapers (Roll),Softcare,Baby,Piece,1,1800.00,100,false
+27,FAM-0026,CTN-000011,CODE128,Internal,INTERNAL,Low,TomaGood Tomato Mix 70g x 50 (Carton),TomaGood,Pantry,Carton,70,17500.00,30,true
+28,FAM-0027,CTN-000012,CODE128,Internal,INTERNAL,Low,TomaGood Tomato Mix 210g x 48 (Carton),TomaGood,Pantry,Carton,210,31500.00,20,true
+29,FAM-0028,CTN-000013,CODE128,Internal,INTERNAL,Low,Jumbo Chicken Flavour (Carton),Jumbo,Spices,Carton,24,17800.00,35,true
+30,FAM-0029,PRD-000015,CODE128,Internal,INTERNAL,Low,Sweet Favourite Plantain Chips (Piece),Sweet Favourite,Snacks,Piece,1,200.00,250,false
+31,FAM-0030,CTN-000014,CODE128,Internal,INTERNAL,Low,Sweet Favourite Plantain Chips (Carton),Sweet Favourite,Snacks,Carton,24,8500.00,40,true
+32,FAM-0031,PRD-000016,CODE128,Internal,INTERNAL,Low,Minimie Chinchin Snack Pack (Piece),Minimie,Snacks,Piece,1,250.00,300,false
+33,FAM-0032,CTN-000015,CODE128,Internal,INTERNAL,Low,Minimie Chinchin Snack Pack (Carton),Minimie,Snacks,Carton,24,9500.00,45,true
+34,FAM-0033,PRD-000017,CODE128,Internal,INTERNAL,Low,Devon King's Vegetable Oil Sachet (Piece),Devon King's,Pantry,Piece,1,1200.00,150,false
+35,FAM-0034,CTN-000016,CODE128,Internal,INTERNAL,Low,Devon King's Vegetable Oil Sachet (Carton),Devon King's,Pantry,Carton,50,22500.00,25,true
+36,FAM-0035,6156000034102,EAN13,Manufacturer,VERIFIED,High,Golden Penny Amaizing Day 650g (Piece),Golden Penny,Breakfast,Piece,1,2800.00,80,false
+37,FAM-0036,16156000034109,ITF14,Manufacturer,VERIFIED,High,Golden Penny Amaizing Day 650g (Carton),Golden Penny,Breakfast,Carton,24,31000.00,12,true
+38,FAM-0037,PRD-000019,CODE128,Internal,INTERNAL,Low,Mamador Pure Vegetable Oil 3L Gallon,Mamador,Pantry,Piece,1,14500.00,40,false
+39,FAM-0038,PRD-000020,CODE128,Internal,INTERNAL,Low,Golden Penny Pure Soya Oil 3L Bottle,Golden Penny,Pantry,Piece,1,14500.00,40,false
+40,FAM-0039,6154000015428,EAN13,Manufacturer,VERIFIED,High,Devon King's Pure Vegetable Oil 3L Gallon,Devon King's,Pantry,Piece,1,14500.00,40,false
+41,FAM-0040,PRD-000022,CODE128,Internal,INTERNAL,Low,Yale Cabin Sweetened Biscuit (Piece),Yale,Snacks,Piece,1,500.00,180,false
+42,FAM-0041,PRD-000023,CODE128,Internal,INTERNAL,Low,Ziploc Storage Bags (Piece),Ziploc,Household,Piece,1,1500.00,100,false
+43,FAM-0042,PRD-000024,CODE128,Internal,INTERNAL,Low,Molped Sanitary Pads Single (Piece),Molped,Personal Care,Piece,1,850.00,200,false
+44,FAM-0043,PRD-000025,CODE128,Internal,INTERNAL,Low,Dr. Brown's Baby Wipes (Piece),Dr. Brown's,Baby,Piece,1,1200.00,120,false
+45,FAM-0044,PRD-000026,CODE128,Internal,INTERNAL,Low,Center fruit Candy Tub (Piece),Generic,Snacks,Piece,1,2500.00,60,false
+46,FAM-0045,PRD-000027,CODE128,Internal,INTERNAL,Low,Milk Block Candy Tub (Piece),Generic,Snacks,Piece,1,2500.00,60,false
+47,FAM-0046,PRD-000028,CODE128,Internal,INTERNAL,Low,Cola Roll Candy Tub (Piece),Generic,Snacks,Piece,1,2500.00,60,false
+48,FAM-0047,PRD-000029,CODE128,Internal,INTERNAL,Low,Star Fashibo Cup Candy Tub (Piece),Generic,Snacks,Piece,1,2500.00,60,false
+49,FAM-0048,PRD-000030,CODE128,Internal,INTERNAL,Low,Choco Milk Box (Piece),Generic,Snacks,Piece,1,1800.00,80,false
+50,FAM-0049,PRD-000031,CODE128,Internal,INTERNAL,Low,Molped Super Value Pack 32s (Piece),Molped,Personal Care,Piece,1,2900.00,90,false
+51,FAM-0050,PRD-000032,CODE128,Internal,INTERNAL,Low,Molfix Baby Pants Size 5 (Pack),Molfix,Baby,Piece,1,15500.00,40,false
+52,FAM-0051,PRD-000033,CODE128,Internal,INTERNAL,Low,Molfix Baby Pants Size 3 62pcs (Pack),Molfix,Baby,Piece,1,15500.00,40,false
+53,FAM-0052,PRD-000034,CODE128,Internal,INTERNAL,Low,Bebem Natural Essence Size 4 100pcs (Pack),Bebem,Baby,Piece,1,14800.00,35,false
+54,FAM-0053,PRD-000035,CODE128,Internal,INTERNAL,Low,KissKids Baby Diapers Size 3 50pcs (Pack),KissKids,Baby,Piece,1,7700.00,60,false
+55,FAM-0054,PRD-000036,CODE128,Internal,INTERNAL,Low,KissKids Baby Diapers Size 2 54pcs (Pack),KissKids,Baby,Piece,1,7700.00,60,false
+56,FAM-0055,PRD-000037,CODE128,Internal,INTERNAL,Low,Peak Full Cream Milk Powder 400g Tin,Peak,Dairy,Piece,1,4800.00,100,false
+57,FAM-0056,CTN-000018,CODE128,Internal,INTERNAL,Low,Peak Full Cream Milk Powder Tin (Carton),Peak,Dairy,Carton,24,56000.00,15,true
+58,FAM-0057,PRD-000038,CODE128,Internal,INTERNAL,Low,NAN Optipro 1 Tin 400g (Piece),NAN,Baby,Piece,1,10300.00,50,false
+59,FAM-0058,PRD-000039,CODE128,Internal,INTERNAL,Low,Bournvita 800g Jar (Piece),Bournvita,Beverages,Piece,1,6700.00,70,false
+60,FAM-0059,PRD-000040,CODE128,Internal,INTERNAL,Low,Bournvita 450g Jar / Tin (Piece),Bournvita,Beverages,Piece,1,4650.00,90,false
+61,FAM-0060,PRD-000041,CODE128,Internal,INTERNAL,Low,My Boy Eldorin 0-12m Tin (Piece),My Boy,Baby,Piece,1,7200.00,55,false
+62,FAM-0061,PRD-000042,CODE128,Internal,INTERNAL,Low,Udu Corn Flakes 500g Bag (Piece),Udu,Breakfast,Piece,1,2200.00,80,false
+63,FAM-0062,PRD-000043,CODE128,Internal,INTERNAL,Low,Nasco Cornflakes Original Box (Piece),Nasco,Breakfast,Piece,1,1800.00,110,false
+64,FAM-0063,PRD-000044,CODE128,Internal,INTERNAL,Low,Parago Chewy Candy Box (Piece),Parago,Snacks,Piece,1,2200.00,75,false
+65,FAM-0064,PRD-000045,CODE128,Internal,INTERNAL,Low,Harpic Power Plus 10X 750ml Bottle,Harpic,Cleaning,Piece,1,2800.00,100,false
+66,FAM-0065,CTN-000019,CODE128,Internal,INTERNAL,Low,Harpic Power Plus 10X (Carton),Harpic,Cleaning,Carton,24,31000.00,15,true
+67,FAM-0066,PRD-000046,CODE128,Internal,INTERNAL,Low,Clean Bleach Bottle (Piece),Clean,Cleaning,Piece,1,1500.00,120,false
+68,FAM-0067,PRD-000047,CODE128,Internal,INTERNAL,Low,Sniper Flying Insect Killer Can (Piece),Sniper,Household,Piece,1,2100.00,150,false
+69,FAM-0068,PRD-000048,CODE128,Internal,INTERNAL,Low,Sniper Crawling Insect Killer Can (Piece),Sniper,Household,Piece,1,2200.00,150,false
+70,FAM-0069,PRD-000049,CODE128,Internal,INTERNAL,Low,Joy Soap Bar (Piece),Joy,Personal Care,Piece,1,600.00,200,false
+71,FAM-0070,CTN-000020,CODE128,Internal,INTERNAL,Low,Joy Soap (Bundle),Joy,Personal Care,Carton,24,5800.00,30,true
+72,FAM-0071,PRD-000050,CODE128,Internal,INTERNAL,Low,Tura Soap Bar (Piece),Tura,Personal Care,Piece,1,800.00,180,false
+73,FAM-0072,PRD-000051,CODE128,Internal,INTERNAL,Low,Air Wick Air Freshener Spray (Piece),Air Wick,Household,Piece,1,2500.00,90,false
+74,FAM-0073,PRD-000052,CODE128,Internal,INTERNAL,Low,Air Wick Freshmatic Complete Kit,Air Wick,Household,Piece,1,4500.00,50,false
+75,FAM-0074,PRD-000053,CODE128,Internal,INTERNAL,Low,Frutilla Creme Air Freshener (Piece),Frutilla,Household,Piece,1,2400.00,80,false
+76,FAM-0075,8901396353003,EAN13,Open Food Facts,VERIFIED,High,Dettol Antiseptic Liquid 500ml Bottle,Dettol,Personal Care,Piece,1,3500.00,80,false
+77,FAM-0076,PRD-000054,CODE128,Internal,INTERNAL,Low,Carex Antibacterial Soap Bar (Piece),Carex,Personal Care,Piece,1,700.00,180,false
+78,FAM-0077,CTN-000021,CODE128,Internal,INTERNAL,Low,Carex Antibacterial Soap (Bundle),Carex,Personal Care,Carton,24,6800.00,25,true
+79,FAM-0078,PRD-000055,CODE128,Internal,INTERNAL,Low,Nova Soap Bar (Piece),Nova,Personal Care,Piece,1,500.00,200,false
+80,FAM-0079,PRD-000056,CODE128,Internal,INTERNAL,Low,2Sure Soap Bar (Piece),2Sure,Personal Care,Piece,1,650.00,180,false
+81,FAM-0080,PRD-000057,CODE128,Internal,INTERNAL,Low,Huggies Plus Size 7 (Pack),Huggies,Baby,Piece,1,16500.00,30,false
+82,FAM-0081,CTN-000022,CODE128,Internal,INTERNAL,Low,Chivita 100% Fruit Juice 1L (Carton),Generic,Beverages,Carton,24,18500.00,25,true
+83,FAM-0082,CTN-000023,CODE128,Internal,INTERNAL,Low,Chivita Ice Tea 1L (Carton),Generic,Beverages,Carton,24,16500.00,25,true
+84,FAM-0083,CTN-000024,CODE128,Internal,INTERNAL,Low,Chivita Active 1L (Carton),Generic,Beverages,Carton,24,17500.00,25,true
+85,FAM-0084,CTN-000025,CODE128,Internal,INTERNAL,Low,Ribena 150ml (Carton),Generic,Beverages,Carton,24,15500.00,30,true
+86,FAM-0085,16154000102354,ITF14,Manufacturer,VERIFIED,High,FreshYo Drinking Yoghurt (Carton),Generic,Beverages,Carton,24,14500.00,30,true
+87,FAM-0086,PRD-000058,CODE128,Internal,INTERNAL,Low,Energy Drink Can (Piece),Generic,Beverages,Piece,1,700.00,200,false
+88,FAM-0087,CTN-000027,CODE128,Internal,INTERNAL,Low,Energy Drink Cans (Pack/Carton),Generic,Beverages,Carton,24,15500.00,25,true
+89,FAM-0088,PRD-000059,CODE128,Internal,INTERNAL,Low,Maltina Can 330ml (Piece),Maltina,Beverages,Piece,1,800.00,200,false
+90,FAM-0089,CTN-000028,CODE128,Internal,INTERNAL,Low,Maltina Cans 330ml (Carton),Maltina,Beverages,Carton,24,18000.00,30,true
+91,FAM-0090,PRD-000060,CODE128,Internal,INTERNAL,Low,Nirvana Bottled Water 75cl (Piece),Nirvana,Beverages,Piece,1,250.00,300,false
+92,FAM-0091,CTN-000029,CODE128,Internal,INTERNAL,Low,Nirvana Bottled Water 75cl (Pack),Nirvana,Beverages,Carton,24,2800.00,45,true
+93,FAM-0092,PRD-000061,CODE128,Internal,INTERNAL,Low,Sniper Bedbug Killer Spray (Piece),Sniper,Household,Piece,1,2400.00,100,false
+94,FAM-0093,PRD-000062,CODE128,Internal,INTERNAL,Low,Munch It Cheesy Stix (Piece),Munch It,Snacks,Piece,1,200.00,300,false
+95,FAM-0094,CTN-000030,CODE128,Internal,INTERNAL,Low,Munch It Cheesy Stix (Carton),Munch It,Snacks,Carton,24,8500.00,40,true
+96,FAM-0095,PRD-000063,CODE128,Internal,INTERNAL,Low,Munch It Sour Cream & Onion (Piece),Munch It,Snacks,Piece,1,200.00,300,false
+97,FAM-0096,CTN-000031,CODE128,Internal,INTERNAL,Low,Munch It Sour Cream & Onion (Carton),Munch It,Snacks,Carton,24,8500.00,40,true
+98,FAM-0097,CTN-000032,CODE128,Internal,INTERNAL,Low,Harpic Toilet Cleaner 750ml (Carton),Harpic,Cleaning,Carton,24,31000.00,20,true
+99,FAM-0098,PRD-000064,CODE128,Internal,INTERNAL,Low,McVitie's Rich Tea Biscuits (Box),McVitie's,Snacks,Piece,1,1500.00,100,false
+100,FAM-0099,5000168170183,EAN13,Open Food Facts,VERIFIED,High,McVitie's Hobnobs Biscuits (Box),McVitie's,Snacks,Piece,1,1800.00,100,false
+101,FAM-0100,7622202039775,EAN13,Open Food Facts,VERIFIED,High,Oreo Biscuits (Box),Oreo,Snacks,Piece,1,2200.00,90,false
+102,FAM-0101,PRD-000065,CODE128,Internal,INTERNAL,Low,Tiramisu Wafers (Box),Tiramisu,Snacks,Piece,1,2500.00,80,false
+103,FAM-0102,PRD-000066,CODE128,Internal,INTERNAL,Low,Butter Bread Biscuits (Box),Generic,Snacks,Piece,1,1600.00,100,false
+104,FAM-0103,PRD-000067,CODE128,Internal,INTERNAL,Low,Gala Sausage Roll (Piece),Gala,Snacks,Piece,1,250.00,300,false
+105,FAM-0104,CTN-000033,CODE128,Internal,INTERNAL,Low,Gala Sausage Roll (Carton),Gala,Snacks,Carton,50,11500.00,35,true
+106,FAM-0105,PRD-000068,CODE128,Internal,INTERNAL,Low,Custard Pie Box (Piece),Custard Pie,Snacks,Piece,1,1800.00,90,false
+107,FAM-0106,PRD-000069,CODE128,Internal,INTERNAL,Low,Morning Fresh Dishwashing Liquid 1L,Morning Fresh,Cleaning,Piece,1,2400.00,120,false
+108,FAM-0107,CTN-000034,CODE128,Internal,INTERNAL,Low,Morning Fresh Dishwashing Liquid (Carton),Morning Fresh,Cleaning,Carton,24,26500.00,20,true
+109,FAM-0108,CTN-000035,CODE128,Internal,INTERNAL,Low,Nasco Cornflakes (Carton),Nasco,Breakfast,Carton,24,21000.00,20,true
+110,FAM-0109,CTN-000036,CODE128,Internal,INTERNAL,Low,Canoe Soap (Carton),Canoe,Cleaning,Carton,24,16500.00,25,true
+111,FAM-0110,CTN-000037,CODE128,Internal,INTERNAL,Low,Premier Soap (Carton),Premier,Personal Care,Carton,24,18500.00,25,true
+112,FAM-0111,PRD-000070,CODE128,Internal,INTERNAL,Low,Tissue Paper 10 Rolls (Pack),Tissue,Household,Piece,1,2500.00,100,false
+113,FAM-0112,CTN-000038,CODE128,Internal,INTERNAL,Low,Indomie Standard Chicken 70g (Carton),Indomie,Pantry,Carton,24,11500.00,50,true
+114,FAM-0113,CTN-000039,CODE128,Internal,INTERNAL,Low,Minimie Noodles (Carton),Minimie,Pantry,Carton,40,10500.00,45,true
+115,FAM-0114,CTN-000040,CODE128,Internal,INTERNAL,Low,Chikki Chicken Noodles 70g (Carton),Chikki,Pantry,Carton,40,10800.00,40,true
+116,FAM-0115,CTN-000041,CODE128,Internal,INTERNAL,Low,Chikki Chicken Noodles 100g (Carton),Chikki,Pantry,Carton,40,14500.00,35,true
+117,FAM-0116,CTN-000042,CODE128,Internal,INTERNAL,Low,Golden Penny Jollof Noodles (Carton),Golden Penny,Pantry,Carton,40,12500.00,40,true
+118,FAM-0117,16156000032204,ITF14,Manufacturer,VERIFIED,High,Golden Penny Spaghetti 500g (Carton),Golden Penny,Pantry,Carton,24,17300.00,50,true
+119,FAM-0118,CTN-000044,CODE128,Internal,INTERNAL,Low,Hypo Multipurpose Bleach 500ml (Carton),Hypo,Cleaning,Carton,24,13500.00,35,true
+120,FAM-0119,CTN-000045,CODE128,Internal,INTERNAL,Low,Loya Milk 400g Tin (Carton),Loya,Dairy,Carton,24,54000.00,15,true
+121,FAM-0120,3159470000120,EAN13,Open Food Facts,VERIFIED,High,Kellogg's Cornflakes 500g (Box),Kellogg's,Breakfast,Piece,1,2800.00,90,false
+122,FAM-0121,PRD-000071,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise 946ml Jar (Piece),Bama,Pantry,Piece,1,4300.00,80,false
+123,FAM-0122,CTN-000046,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise 946ml (Carton),Bama,Pantry,Carton,24,51000.00,15,true
+124,FAM-0123,PRD-000072,CODE128,Internal,INTERNAL,Low,Geisha Mackerel in Tomato Sauce Can,Geisha,Pantry,Piece,1,1100.00,180,false
+125,FAM-0124,CTN-000047,CODE128,Internal,INTERNAL,Low,Geisha Mackerel Can (Carton),Geisha,Pantry,Carton,24,52000.00,20,true
+126,FAM-0125,PRD-000073,CODE128,Internal,INTERNAL,Low,Kivo Garri Mix Sachet (Piece),Kivo,Pantry,Piece,1,350.00,250,false
+127,FAM-0126,8720608009305,EAN13,Open Food Facts,VERIFIED,High,Lipton Yellow Label Tea 100 Bags (Box),Lipton,Beverages,Piece,1,2200.00,110,false
+128,FAM-0127,8716200727716,EAN13,Open Food Facts,VERIFIED,High,Peak Milk 400g Tin,Peak,Dairy,Piece,1,4800.00,100,false
+129,FAM-0128,6001068480401,EAN13,EAN-Search,VERIFIED,High,Milo 500g Refill Tin / Bag,Milo,Beverages,Piece,1,3500.00,100,false
+130,FAM-0129,PRD-000074,CODE128,Internal,INTERNAL,Low,Knorr Seasoning Cubes (Pack),Knorr,Pantry,Piece,1,1200.00,150,false
+131,FAM-0130,6164004676235,EAN13,Open Food Facts,VERIFIED,High,Blue Band Margarine 250g,Blue Band,Pantry,Piece,1,1500.00,120,false
+132,FAM-0131,PRD-000075,CODE128,Internal,INTERNAL,Low,Dangote Sugar 500g,Dangote,Pantry,Piece,1,1300.00,140,false
+133,FAM-0132,PRD-000076,CODE128,Internal,INTERNAL,Low,Coca-Cola 50cl PET Bottle,Coca-Cola,Beverages,Piece,1,400.00,240,false
+134,FAM-0133,PRD-000077,CODE128,Internal,INTERNAL,Low,Fanta Orange 50cl PET Bottle,Fanta,Beverages,Piece,1,400.00,240,false
+135,FAM-0134,PRD-000078,CODE128,Internal,INTERNAL,Low,Sprite 50cl PET Bottle,Sprite,Beverages,Piece,1,400.00,240,false
+136,FAM-0135,PRD-000079,CODE128,Internal,INTERNAL,Low,Monster Energy Drink 500ml Can,Monster,Beverages,Piece,1,1500.00,100,false
+137,FAM-0136,PRD-000080,CODE128,Internal,INTERNAL,Low,Lux Soap Bar,Lux,Personal Care,Piece,1,800.00,180,false
+138,FAM-0137,PRD-000081,CODE128,Internal,INTERNAL,Low,Dove Beauty Cream Bar,Dove,Personal Care,Piece,1,1500.00,150,false
+139,FAM-0138,PRD-000082,CODE128,Internal,INTERNAL,Low,Close-Up Red Hot Toothpaste 140g,Close-Up,Personal Care,Piece,1,1400.00,140,false
+140,FAM-0139,PRD-000083,CODE128,Internal,INTERNAL,Low,Omo Multi-Active Detergent 1kg,Omo,Cleaning,Piece,1,2800.00,110,false
+141,FAM-0140,PRD-000084,CODE128,Internal,INTERNAL,Low,Sunlight Dishwashing Liquid 400ml,Sunlight,Cleaning,Piece,1,1200.00,130,false
+142,FAM-0141,PRD-000085,CODE128,Internal,INTERNAL,Low,Maggi Star Cubes (Pack),Maggi,Pantry,Piece,1,1100.00,160,false
+143,FAM-0142,PRD-000086,CODE128,Internal,INTERNAL,Low,Good Mama Detergent 1kg,Good Mama,Cleaning,Piece,1,2300.00,120,false
+144,FAM-0143,PRD-000087,CODE128,Internal,INTERNAL,Low,Viva Detergent 900g,Viva,Cleaning,Piece,1,2400.00,120,false
+145,FAM-0144,PRD-000088,CODE128,Internal,INTERNAL,Low,Eva Premium Water 75cl,Eva,Beverages,Piece,1,250.00,300,false
+146,FAM-0145,PRD-000089,CODE128,Internal,INTERNAL,Low,Malta Guinness Can,Malta Guinness,Beverages,Piece,1,850.00,180,false
+147,FAM-0146,PRD-000090,CODE128,Internal,INTERNAL,Low,Bournvita 20g Sachets (Roll),Bournvita,Beverages,Piece,1,1750.00,100,false
+148,FAM-0146,CTN-000048,CODE128,Internal,INTERNAL,Low,Bournvita 20g Sachets (Carton),Bournvita,Beverages,Carton,50,34000.00,20,true
+149,FAM-0147,PRD-000091,CODE128,Internal,INTERNAL,Low,Bournvita 500g Refill Pack,Bournvita,Beverages,Piece,1,3700.00,80,false
+150,FAM-0148,CTN-000049,CODE128,Internal,INTERNAL,Low,Bournvita 500g Refill (Carton),Bournvita,Beverages,Carton,24,44000.00,15,true
+151,FAM-0149,PRD-000092,CODE128,Internal,INTERNAL,Low,Bournvita 450g Tin,Bournvita,Beverages,Piece,1,4650.00,70,false
+152,FAM-0150,PRD-000093,CODE128,Internal,INTERNAL,Low,Cadbury 3in1 Hot Chocolate 20g (Roll),Generic,Beverages,Piece,1,3250.00,90,false
+153,FAM-0151,CTN-000050,CODE128,Internal,INTERNAL,Low,Cadbury 3in1 Hot Chocolate (Carton),Generic,Beverages,Carton,24,39000.00,15,true
+154,FAM-0152,PRD-000094,CODE128,Internal,INTERNAL,Low,Cadbury 400g Tin,Generic,Beverages,Piece,1,4100.00,60,false
+155,FAM-0153,CTN-000051,CODE128,Internal,INTERNAL,Low,Cadbury 400g Tin (Carton),Generic,Beverages,Carton,24,34000.00,12,true
+156,FAM-0154,PRD-000095,CODE128,Internal,INTERNAL,Low,Milo 20g Sachets (Roll),Milo,Beverages,Piece,1,1800.00,120,false
+157,FAM-0154,CTN-000052,CODE128,Internal,INTERNAL,Low,Milo 20g Sachets (Carton),Milo,Beverages,Carton,50,36000.00,20,true
+158,FAM-0155,PRD-000096,CODE128,Internal,INTERNAL,Low,Milo 350g Refill Pack,Milo,Beverages,Piece,1,3500.00,100,false
+159,FAM-0156,PRD-000097,CODE128,Internal,INTERNAL,Low,Milo 800g Refill Pack,Milo,Beverages,Piece,1,6700.00,70,false
+160,FAM-0157,PRD-000098,CODE128,Internal,INTERNAL,Low,Milo 800g Tin,Milo,Beverages,Piece,1,7500.00,50,false
+161,FAM-0158,PRD-000099,CODE128,Internal,INTERNAL,Low,Milo 3in1 Sachets (Roll),Milo,Beverages,Piece,1,2600.00,100,false
+162,FAM-0159,PRD-000100,CODE128,Internal,INTERNAL,Low,Milo Crunchy Sachets (Roll),Milo,Beverages,Piece,1,2600.00,100,false
+163,FAM-0160,PRD-000101,CODE128,Internal,INTERNAL,Low,Ovaltine 18g Sachets (Roll),Generic,Beverages,Piece,1,1900.00,100,false
+164,FAM-0161,PRD-000102,CODE128,Internal,INTERNAL,Low,Ovaltine 350g Refill Pack,Generic,Beverages,Piece,1,3500.00,90,false
+165,FAM-0162,PRD-000103,CODE128,Internal,INTERNAL,Low,Ovaltine 350g Tin,Generic,Beverages,Piece,1,3800.00,80,false
+166,FAM-0163,PRD-000104,CODE128,Internal,INTERNAL,Low,Ovaltine 750g Refill Pack,Generic,Beverages,Piece,1,6900.00,60,false
+167,FAM-0164,PRD-000105,CODE128,Internal,INTERNAL,Low,Ovaltine 750g Tin,Generic,Beverages,Piece,1,7200.00,50,false
+168,FAM-0165,PRD-000106,CODE128,Internal,INTERNAL,Low,Kremela Milk Sachets (Roll),Generic,Dairy,Piece,1,900.00,150,false
+169,FAM-0166,PRD-000107,CODE128,Internal,INTERNAL,Low,Kremela 350g Refill Pack,Generic,Dairy,Piece,1,1550.00,100,false
+170,FAM-0167,PRD-000108,CODE128,Internal,INTERNAL,Low,Twisco Choco Sachets 25g (Roll),Generic,Beverages,Piece,1,1750.00,110,false
+171,FAM-0168,PRD-000109,CODE128,Internal,INTERNAL,Low,Twisco 350g Refill Pack,Generic,Beverages,Piece,1,3500.00,80,false
+172,FAM-0169,PRD-000110,CODE128,Internal,INTERNAL,Low,Cowbell Choco Sachets 22g (Roll),Cowbell,Beverages,Piece,1,1500.00,130,false
+173,FAM-0170,PRD-000111,CODE128,Internal,INTERNAL,Low,Cowbell Choco 400g Refill,Cowbell,Beverages,Piece,1,2900.00,90,false
+174,FAM-0171,PRD-000112,CODE128,Internal,INTERNAL,Low,Cowbell Strawberry Sachets 15g (Roll),Cowbell,Beverages,Piece,1,1000.00,140,false
+175,FAM-0172,PRD-000113,CODE128,Internal,INTERNAL,Low,Peak Milk Tetra Pak 140ml (Roll/Pack),Peak,Dairy,Piece,1,1700.00,120,false
+176,FAM-0173,PRD-000114,CODE128,Internal,INTERNAL,Low,Three Crowns Tetra Pak 140ml (Roll/Pack),Three Crowns,Dairy,Piece,1,1700.00,120,false
+177,FAM-0174,18716200607541,ITF14,Manufacturer,VERIFIED,High,Three Crowns Tetra Pak (Carton),Three Crowns,Dairy,Carton,24,16000.00,25,true
+178,FAM-0175,PRD-000115,CODE128,Internal,INTERNAL,Low,Peak Full Cream Sachets (Roll),Peak,Dairy,Piece,1,1400.00,140,false
+179,FAM-0175,CTN-000054,CODE128,Internal,INTERNAL,Low,Peak Full Cream Sachets (Carton),Peak,Dairy,Carton,50,22500.00,20,true
+180,FAM-0176,PRD-000116,CODE128,Internal,INTERNAL,Low,Cowbell Milk 12g Sachets (Roll),Cowbell,Dairy,Piece,1,1200.00,150,false
+181,FAM-0176,CTN-000055,CODE128,Internal,INTERNAL,Low,Cowbell Milk 12g Sachets (Carton),Cowbell,Dairy,Carton,24,23000.00,25,true
+182,FAM-0177,PRD-000117,CODE128,Internal,INTERNAL,Low,Cowbell Milk 350g Refill Pack,Cowbell,Dairy,Piece,1,2800.00,100,false
+183,FAM-0178,PRD-000118,CODE128,Internal,INTERNAL,Low,Cowbell Milk 750g Refill Pack,Cowbell,Dairy,Piece,1,6450.00,70,false
+184,FAM-0179,PRD-000119,CODE128,Internal,INTERNAL,Low,Miksi Milk Sachets 12g (Roll),Generic,Dairy,Piece,1,1200.00,140,false
+185,FAM-0180,PRD-000120,CODE128,Internal,INTERNAL,Low,Miksi Milk 350g Refill Pack,Generic,Dairy,Piece,1,2900.00,90,false
+186,FAM-0181,PRD-000121,CODE128,Internal,INTERNAL,Low,Miksi Milk 750g Refill Pack,Generic,Dairy,Piece,1,6500.00,65,false
+187,FAM-0182,PRD-000122,CODE128,Internal,INTERNAL,Low,Loyal Milk 14g Sachets (Roll),Loya,Dairy,Piece,1,1650.00,130,false
+188,FAM-0183,PRD-000123,CODE128,Internal,INTERNAL,Low,Loyal Milk 350g Refill Pack,Loya,Dairy,Piece,1,3850.00,85,false
+189,FAM-0184,PRD-000124,CODE128,Internal,INTERNAL,Low,Loyal Milk 750g Refill Pack,Loya,Dairy,Piece,1,8400.00,55,false
+190,FAM-0185,PRD-000125,CODE128,Internal,INTERNAL,Low,Peak Milk 14g Sachets (Roll),Peak,Dairy,Piece,1,1750.00,140,false
+191,FAM-0185,CTN-000056,CODE128,Internal,INTERNAL,Low,Peak Milk 14g Sachets (Carton),Peak,Dairy,Carton,24,35500.00,20,true
+192,FAM-0186,PRD-000126,CODE128,Internal,INTERNAL,Low,Peak Creamier 12g Sachets (Roll),Peak,Dairy,Piece,1,1250.00,150,false
+193,FAM-0187,PRD-000127,CODE128,Internal,INTERNAL,Low,Peak 350g Refill Pack,Peak,Dairy,Piece,1,4100.00,90,false
+194,FAM-0188,PRD-000128,CODE128,Internal,INTERNAL,Low,Peak 800g Refill Pack,Peak,Dairy,Piece,1,9100.00,60,false
+195,FAM-0189,PRD-000129,CODE128,Internal,INTERNAL,Low,JV Choco Sachets (Roll),Generic,Beverages,Piece,1,1650.00,120,false
+196,FAM-0190,PRD-000130,CODE128,Internal,INTERNAL,Low,JV Choco Refill Pack,Generic,Beverages,Piece,1,2900.00,80,false
+197,FAM-0191,PRD-000131,CODE128,Internal,INTERNAL,Low,Three Crowns 12g Sachets (Roll),Three Crowns,Dairy,Piece,1,1250.00,140,false
+198,FAM-0191,CTN-000057,CODE128,Internal,INTERNAL,Low,Three Crowns 12g Sachets (Carton),Three Crowns,Dairy,Carton,50,26000.00,22,true
+199,FAM-0192,PRD-000132,CODE128,Internal,INTERNAL,Low,Three Crowns 350g Refill Pack,Three Crowns,Dairy,Piece,1,3000.00,95,false
+200,FAM-0193,PRD-000133,CODE128,Internal,INTERNAL,Low,Three Crowns 750g Refill Pack,Three Crowns,Dairy,Piece,1,7600.00,65,false
+201,FAM-0194,PRD-000134,CODE128,Internal,INTERNAL,Low,Dano Cool Cow 12g Sachets (Roll),Dano,Dairy,Piece,1,1250.00,140,false
+202,FAM-0195,PRD-000135,CODE128,Internal,INTERNAL,Low,Dano Cool Cow 350g Refill Pack,Dano,Dairy,Piece,1,2950.00,100,false
+203,FAM-0196,PRD-000136,CODE128,Internal,INTERNAL,Low,Dano Cool Cow 750g Refill Pack,Dano,Dairy,Piece,1,6500.00,70,false
+204,FAM-0197,PRD-000137,CODE128,Internal,INTERNAL,Low,Dano Full Cream 350g Refill Pack,Dano,Dairy,Piece,1,4700.00,80,false
+205,FAM-0198,PRD-000138,CODE128,Internal,INTERNAL,Low,Dano Full Cream 800g Refill Pack,Dano,Dairy,Piece,1,10400.00,50,false
+206,FAM-0199,PRD-000139,CODE128,Internal,INTERNAL,Low,Tissue Rose Jumbo (Piece),Tissue,Paper Products,Piece,1,950.00,150,false
+207,FAM-0200,CTN-000058,CODE128,Internal,INTERNAL,Low,Tissue Rose Jumbo (Carton/Bag),Tissue,Paper Products,Carton,24,9300.00,30,true
+208,FAM-0201,PRD-000140,CODE128,Internal,INTERNAL,Low,Tissue Rose Standard Pack,Tissue,Paper Products,Piece,1,1200.00,140,false
+209,FAM-0202,CTN-000059,CODE128,Internal,INTERNAL,Low,Tissue Rose Standard (Carton),Tissue,Paper Products,Carton,24,9300.00,30,true
+210,FAM-0203,PRD-000141,CODE128,Internal,INTERNAL,Low,Softwaves Toilet Tissue Pack,Tissue,Paper Products,Piece,1,750.00,160,false
+211,FAM-0204,CTN-000060,CODE128,Internal,INTERNAL,Low,Softwaves Toilet Tissue (Carton),Tissue,Paper Products,Carton,24,5900.00,35,true
+212,FAM-0205,PRD-000142,CODE128,Internal,INTERNAL,Low,Softwaves Jumbo Tissue (Piece),Tissue,Paper Products,Piece,1,450.00,200,false
+213,FAM-0206,CTN-000061,CODE128,Internal,INTERNAL,Low,Softwaves Jumbo Tissue (Carton),Tissue,Paper Products,Carton,24,5500.00,40,true
+214,FAM-0207,PRD-000143,CODE128,Internal,INTERNAL,Low,Rose Kitchen Roll (Piece),Generic,Paper Products,Piece,1,950.00,120,false
+215,FAM-0208,CTN-000062,CODE128,Internal,INTERNAL,Low,Rose Kitchen Roll (Carton),Generic,Paper Products,Carton,50,10500.00,25,true
+216,FAM-0209,CTN-000063,CODE128,Internal,INTERNAL,Low,Belle Kitchen Roll (Carton),Generic,Paper Products,Carton,50,16000.00,20,true
+217,FAM-0210,PRD-000144,CODE128,Internal,INTERNAL,Low,Rose Carle Tissue Pack,Tissue,Paper Products,Piece,1,4750.00,80,false
+218,FAM-0211,CTN-000064,CODE128,Internal,INTERNAL,Low,Rose Carle Tissue (Bag),Tissue,Paper Products,Carton,24,37000.00,15,true
+219,FAM-0212,PRD-000145,CODE128,Internal,INTERNAL,Low,Belle Tissue Roll (Piece),Tissue,Paper Products,Piece,1,800.00,180,false
+220,FAM-0213,CTN-000065,CODE128,Internal,INTERNAL,Low,Belle Tissue Roll (Bag),Tissue,Paper Products,Carton,50,19200.00,25,true
+221,FAM-0214,PRD-000146,CODE128,Internal,INTERNAL,Low,Belle Serviette Pack (Piece),Generic,Paper Products,Piece,1,350.00,220,false
+222,FAM-0215,CTN-000066,CODE128,Internal,INTERNAL,Low,Belle Serviette Pack (Bag),Generic,Paper Products,Carton,24,12300.00,35,true
+223,FAM-0216,PRD-000147,CODE128,Internal,INTERNAL,Low,Belle Car Tissue Box,Tissue,Paper Products,Piece,1,1600.00,90,false
+224,FAM-0217,PRD-000148,CODE128,Internal,INTERNAL,Low,Softwaves Serviette Pack,Generic,Paper Products,Piece,1,300.00,250,false
+225,FAM-0218,CTN-000067,CODE128,Internal,INTERNAL,Low,Softwaves Serviette (Bag),Generic,Paper Products,Carton,24,7600.00,40,true
+226,FAM-0219,CTN-000068,CODE128,Internal,INTERNAL,Low,Finetex Serviette (Bag),Generic,Paper Products,Carton,24,10400.00,30,true
+227,FAM-0220,PRD-000149,CODE128,Internal,INTERNAL,Low,Silky Serviette Pack (Piece),Generic,Paper Products,Piece,1,300.00,250,false
+228,FAM-0221,CTN-000069,CODE128,Internal,INTERNAL,Low,Silky Serviette (Bag),Generic,Paper Products,Carton,24,8000.00,40,true
+229,FAM-0222,PRD-000150,CODE128,Internal,INTERNAL,Low,Familiar Tissue Pack,Tissue,Paper Products,Piece,1,1750.00,100,false
+230,FAM-0223,PRD-000151,CODE128,Internal,INTERNAL,Low,Cotton Bud Pack,Generic,Personal Care,Piece,1,150.00,300,false
+231,FAM-0224,CTN-000070,CODE128,Internal,INTERNAL,Low,Cotton Bud (Roll/Card),Generic,Personal Care,Carton,50,2300.00,45,true
+232,FAM-0225,PRD-000152,CODE128,Internal,INTERNAL,Low,Iron Sponge Big/Small (Roll),Generic,Cleaning,Piece,1,2200.00,110,false
+233,FAM-0226,PRD-000153,CODE128,Internal,INTERNAL,Low,Toothpicks Pack,Generic,Household,Piece,1,1000.00,150,false
+234,FAM-0227,PRD-000154,CODE128,Internal,INTERNAL,Low,Handkerchief White Pack,Generic,Personal Care,Piece,1,2300.00,100,false
+235,FAM-0228,PRD-000155,CODE128,Internal,INTERNAL,Low,Handkerchief Colour Pack,Generic,Personal Care,Piece,1,1650.00,120,false
+236,FAM-0229,PRD-000156,CODE128,Internal,INTERNAL,Low,Tiger Razor Blade Pack,Generic,Personal Care,Piece,1,650.00,180,false
+237,FAM-0230,CTN-000071,CODE128,Internal,INTERNAL,Low,Tiger Razor Blade (10 Packets/Card),Generic,Personal Care,Carton,10,6000.00,30,true
+238,FAM-0231,PRD-000157,CODE128,Internal,INTERNAL,Low,Tiger Battery Small & Big (Pack),Generic,Household,Piece,1,1600.00,140,false
+239,FAM-0232,PRD-000158,CODE128,Internal,INTERNAL,Low,Peak Choco Refill Pack,Peak,Beverages,Piece,1,3000.00,90,false
+240,FAM-0233,CTN-000072,CODE128,Internal,INTERNAL,Low,Peak Choco Refill (Carton),Peak,Beverages,Carton,24,36000.00,18,true
+241,FAM-0234,PRD-000159,CODE128,Internal,INTERNAL,Low,Peak Choco Sachets (Roll),Peak,Beverages,Piece,1,1750.00,130,false
+242,FAM-0234,CTN-000073,CODE128,Internal,INTERNAL,Low,Peak Choco Sachets (Carton),Peak,Beverages,Carton,50,36000.00,20,true
+243,FAM-0235,PRD-000160,CODE128,Internal,INTERNAL,Low,Nestle Cerelac Sachets (Roll),Generic,Baby,Piece,1,4000.00,110,false
+244,FAM-0235,CTN-000074,CODE128,Internal,INTERNAL,Low,Nestle Cerelac Sachets (Carton),Generic,Baby,Carton,50,56000.00,15,true
+245,FAM-0236,PRD-000161,CODE128,Internal,INTERNAL,Low,Peak 123 Baby Milk Refill,Peak,Baby,Piece,1,4800.00,80,false
+246,FAM-0237,CTN-000075,CODE128,Internal,INTERNAL,Low,Peak 123 Baby Milk Refill (Carton),Peak,Baby,Carton,24,56000.00,15,true
+247,FAM-0238,PRD-000162,CODE128,Internal,INTERNAL,Low,Peak 123 Baby Milk 400g Tin,Peak,Baby,Piece,1,5800.00,70,false
+248,FAM-0239,PRD-000163,CODE128,Internal,INTERNAL,Low,Infant 0-12 Months Formula Tin,Generic,Baby,Piece,1,8300.00,50,false
+249,FAM-0240,PRD-000164,CODE128,Internal,INTERNAL,Low,Cerelac 400g Tin (Piece),Generic,Baby,Piece,1,5800.00,75,false
+250,FAM-0241,CTN-000076,CODE128,Internal,INTERNAL,Low,Cerelac 400g Tin (Carton),Generic,Baby,Carton,24,69000.00,14,true
+251,FAM-0242,PRD-000165,CODE128,Internal,INTERNAL,Low,Cerelac Wheat & Maize Sachets (Roll),Generic,Baby,Piece,1,4100.00,100,false
+252,FAM-0243,PRD-000166,CODE128,Internal,INTERNAL,Low,Cerelac Junior Sachets (Roll),Generic,Baby,Piece,1,4100.00,100,false
+253,FAM-0244,PRD-000167,CODE128,Internal,INTERNAL,Low,My Boy Baby Milk Tin (Piece),My Boy,Baby,Piece,1,7200.00,60,false
+254,FAM-0245,CTN-000077,CODE128,Internal,INTERNAL,Low,My Boy Baby Milk Tin (Carton),My Boy,Baby,Carton,24,86000.00,12,true
+255,FAM-0246,PRD-000168,CODE128,Internal,INTERNAL,Low,Lactogen 1 Baby Formula Tin,Generic,Baby,Piece,1,10300.00,45,false
+256,FAM-0247,PRD-000169,CODE128,Internal,INTERNAL,Low,Lactogen 2 Baby Formula Tin,Generic,Baby,Piece,1,10300.00,45,false
+257,FAM-0248,PRD-000170,CODE128,Internal,INTERNAL,Low,Lactogen 3 Baby Formula Tin,Generic,Baby,Piece,1,10300.00,45,false
+258,FAM-0249,PRD-000171,CODE128,Internal,INTERNAL,Low,NAN Optipro 1 Formula Tin,NAN,Baby,Piece,1,10300.00,45,false
+259,FAM-0250,PRD-000172,CODE128,Internal,INTERNAL,Low,NAN Optipro 2 Formula Tin,NAN,Baby,Piece,1,10300.00,45,false
+260,FAM-0251,PRD-000173,CODE128,Internal,INTERNAL,Low,NAN Optipro 3 Formula Tin,NAN,Baby,Piece,1,10300.00,45,false
+261,FAM-0252,6154000054151,EAN13,Manufacturer,VERIFIED,High,Peak filled milk small tin,Peak,Dairy,Piece,1,1900.00,120,false
+262,FAM-0253,8716200607544,EAN13,Manufacturer,VERIFIED,High,Three crown tin,Eva,Dairy,Piece,1,1900.00,120,false
+263,FAM-0254,PRD-000176,CODE128,Internal,INTERNAL,Low,Cowbell Evaporated Milk (3 Tins),Eva,Dairy,Piece,1,1750.00,130,false
+264,FAM-0255,PRD-000177,CODE128,Internal,INTERNAL,Low,Nescafe 3in1 Classic Sachets (Roll),Generic,Beverages,Piece,1,1800.00,140,false
+265,FAM-0256,PRD-000178,CODE128,Internal,INTERNAL,Low,Top Tea Sachets (Roll),Generic,Beverages,Piece,1,1950.00,130,false
+266,FAM-0257,PRD-000179,CODE128,Internal,INTERNAL,Low,Gino Tomato Paste Sachets (Roll),Gino,Pantry,Piece,1,800.00,180,false
+267,FAM-0257,CTN-000078,CODE128,Internal,INTERNAL,Low,Gino Tomato Paste Sachets (Carton),Gino,Pantry,Carton,50,17800.00,30,true
+268,FAM-0258,PRD-000180,CODE128,Internal,INTERNAL,Low,Gino Pepper & Onion Sachets (Roll),Gino,Pantry,Piece,1,800.00,180,false
+269,FAM-0259,CTN-000079,CODE128,Internal,INTERNAL,Low,Gino Pepper & Onion (Carton),Gino,Pantry,Carton,24,17700.00,30,true
+270,FAM-0260,PRD-000181,CODE128,Internal,INTERNAL,Low,Gino Jollof Paste Sachets (Roll),Gino,Pantry,Piece,1,900.00,160,false
+271,FAM-0260,CTN-000080,CODE128,Internal,INTERNAL,Low,Gino Jollof Paste Sachets (Carton),Gino,Pantry,Carton,50,17800.00,30,true
+272,FAM-0261,PRD-000182,CODE128,Internal,INTERNAL,Low,Gino Pepper Chicken Sachets (Roll),Gino,Pantry,Piece,1,800.00,170,false
+273,FAM-0262,CTN-000081,CODE128,Internal,INTERNAL,Low,Gino Pepper Chicken (Carton),Gino,Pantry,Carton,24,17800.00,30,true
+274,FAM-0263,PRD-000183,CODE128,Internal,INTERNAL,Low,Jumbo Tomato Paste Sachets (Roll),Jumbo,Pantry,Piece,1,800.00,170,false
+275,FAM-0264,CTN-000082,CODE128,Internal,INTERNAL,Low,Jumbo Tomato Paste (Carton),Jumbo,Pantry,Carton,24,17800.00,30,true
+276,FAM-0265,PRD-000184,CODE128,Internal,INTERNAL,Low,Figo Tomatoes Sachets (Roll),Generic,Pantry,Piece,1,700.00,190,false
+277,FAM-0265,CTN-000083,CODE128,Internal,INTERNAL,Low,Figo Tomatoes Sachets (Carton),Generic,Pantry,Carton,50,17800.00,30,true
+279,FAM-0266,10786411642127,ITF14,Manufacturer,VERIFIED,High,Sonia Tomatoes Sachets (Carton),Sonia,Pantry,Carton,50,17800.00,30,true
+280,FAM-0267,PRD-000186,CODE128,Internal,INTERNAL,Low,Sonia Pepper & Onion Sachets (Roll),Sonia,Pantry,Piece,1,850.00,170,false
+281,FAM-0268,745114646231,UPC_A,Manufacturer,VERIFIED,High,Sonia 200g Tin (Piece),Sonia,Pantry,Piece,1,2000.00,110,false
+282,FAM-0269,10745114646238,ITF14,Manufacturer,VERIFIED,High,Sonia 200g Tin (Carton),Sonia,Pantry,Carton,24,31500.00,20,true
+284,FAM-0271,6156000116990,EAN13,Manufacturer,VERIFIED,High,Tomato’s 800g 1piece,Sonia,Pantry,Piece,1,2400.00,90,false
+285,FAM-0272,PRD-000190,CODE128,Internal,INTERNAL,Low,Sonia Tomato Paste 2.2kg Tin,Sonia,Pantry,Piece,1,5300.00,50,false
+286,FAM-0273,745114646217,UPC_A,Manufacturer,VERIFIED,High,Sonia 210g 1 piece,Gino,Pantry,Piece,1,600.00,160,false
+287,FAM-0274,PRD-000192,CODE128,Internal,INTERNAL,Low,Gino Tomato Paste 400g Refill,Gino,Pantry,Piece,1,1100.00,130,false
+288,FAM-0275,PRD-000193,CODE128,Internal,INTERNAL,Low,Gino Tomato Paste 1.1kg Refill,Gino,Pantry,Piece,1,2800.00,80,false
+289,FAM-0276,PRD-000194,CODE128,Internal,INTERNAL,Low,Gino Curry Sachets Small (Roll),Gino,Spices,Piece,1,550.00,200,false
+290,FAM-0276,CTN-000086,CODE128,Internal,INTERNAL,Low,Gino Curry Sachets Small (Carton),Gino,Spices,Carton,50,10800.00,35,true
+291,FAM-0277,PRD-000195,CODE128,Internal,INTERNAL,Low,Gino Thyme Sachets Small (Roll),Gino,Spices,Piece,1,550.00,200,false
+292,FAM-0277,CTN-000087,CODE128,Internal,INTERNAL,Low,Gino Thyme Sachets Small (Carton),Gino,Spices,Carton,50,10800.00,35,true
+293,FAM-0278,PRD-000196,CODE128,Internal,INTERNAL,Low,Tiger Curry Sachets (Roll),Generic,Spices,Piece,1,550.00,200,false
+294,FAM-0279,PRD-000197,CODE128,Internal,INTERNAL,Low,Tiger Thyme Sachets (Roll),Generic,Spices,Piece,1,550.00,200,false
+295,FAM-0280,PRD-000198,CODE128,Internal,INTERNAL,Low,Lazer Fried Rice & Biryani Seasoning,Generic,Spices,Piece,1,600.00,180,false
+296,FAM-0281,PRD-000199,CODE128,Internal,INTERNAL,Low,Heinz Salad Cream 400ml Bottle,Generic,Pantry,Piece,1,2500.00,80,false
+297,FAM-0282,PRD-000200,CODE128,Internal,INTERNAL,Low,Japo Mayonnaise Sachets (Roll),Generic,Pantry,Piece,1,800.00,160,false
+298,FAM-0282,CTN-000088,CODE128,Internal,INTERNAL,Low,Japo Mayonnaise Sachets (Carton),Generic,Pantry,Carton,50,5800.00,35,true
+299,FAM-0283,PRD-000201,CODE128,Internal,INTERNAL,Low,Yum Babyl Cereal (Roll),Generic,Breakfast,Piece,1,2000.00,110,false
+300,FAM-0283,CTN-000089,CODE128,Internal,INTERNAL,Low,Yum Babyl Cereal (Carton),Generic,Breakfast,Carton,24,19000.00,25,true
+301,FAM-0284,PRD-000202,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise Sachets (Roll),Bama,Pantry,Piece,1,800.00,170,false
+302,FAM-0284,CTN-000090,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise Sachets (Carton),Bama,Pantry,Carton,50,7600.00,30,true
+303,FAM-0285,6154000230456,EAN13,Manufacturer,VERIFIED,High,Golden penny mayonnaise 250g piece,Bama,Pantry,Piece,1,1500.00,120,false
+304,FAM-0286,CTN-000091,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise Small Jar (Carton),Bama,Pantry,Carton,24,18000.00,25,true
+305,FAM-0287,PRD-000204,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise Medium Jar,Bama,Pantry,Piece,1,2500.00,90,false
+306,FAM-0288,CTN-000092,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise Medium Jar (Carton),Bama,Pantry,Carton,24,29000.00,20,true
+307,FAM-0289,PRD-000205,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise Big Jar,Bama,Pantry,Piece,1,4300.00,70,false
+308,FAM-0290,CTN-000093,CODE128,Internal,INTERNAL,Low,Bama Mayonnaise Big Jar (Carton),Bama,Pantry,Carton,24,51000.00,15,true
+309,FAM-0291,PRD-000206,CODE128,Internal,INTERNAL,Low,Japo Mayonnaise Medium Jar,Generic,Pantry,Piece,1,1800.00,100,false
+310,FAM-0292,CTN-000094,CODE128,Internal,INTERNAL,Low,Japo Mayonnaise Medium Jar (Carton),Generic,Pantry,Carton,24,33000.00,20,true
+311,FAM-0293,PRD-000207,CODE128,Internal,INTERNAL,Low,Japo Mayonnaise Big Jar,Generic,Pantry,Piece,1,2850.00,80,false
+312,FAM-0294,CTN-000095,CODE128,Internal,INTERNAL,Low,Japo Mayonnaise Big Jar (Carton),Generic,Pantry,Carton,24,33000.00,15,true
+313,FAM-0295,PRD-000208,CODE128,Internal,INTERNAL,Low,Blue Band Margarine Sachets (Roll),Blue Band,Pantry,Piece,1,750.00,180,false
+314,FAM-0296,PRD-000209,CODE128,Internal,INTERNAL,Low,Blue Band Margarine 250g Tub,Blue Band,Pantry,Piece,1,1500.00,130,false
+315,FAM-0297,PRD-000210,CODE128,Internal,INTERNAL,Low,Blue Band Margarine 450g Tub,Blue Band,Pantry,Piece,1,2800.00,90,false
+316,FAM-0298,PRD-000211,CODE128,Internal,INTERNAL,Low,Blue Band Margarine 900g Tub,Blue Band,Pantry,Piece,1,5500.00,60,false
+317,FAM-0299,PRD-000212,CODE128,Internal,INTERNAL,Low,King's Butter 250g Tub,Generic,Pantry,Piece,1,850.00,150,false
+318,FAM-0300,PRD-000213,CODE128,Internal,INTERNAL,Low,King's Butter 450g Tub,Generic,Pantry,Piece,1,1500.00,120,false
+319,FAM-0301,PRD-000214,CODE128,Internal,INTERNAL,Low,King's Butter 900g Tub,Generic,Pantry,Piece,1,2900.00,80,false
+320,FAM-0302,PRD-000215,CODE128,Internal,INTERNAL,Low,Golden Penny Butter 250g Tub,Golden Penny,Pantry,Piece,1,900.00,140,false
+321,FAM-0303,CTN-000096,CODE128,Internal,INTERNAL,Low,Golden Penny Butter 250g (Carton),Golden Penny,Pantry,Carton,24,21000.00,25,true
+322,FAM-0304,PRD-000216,CODE128,Internal,INTERNAL,Low,Golden Penny Butter 450g Tub,Golden Penny,Pantry,Piece,1,1600.00,110,false
+323,FAM-0305,CTN-000097,CODE128,Internal,INTERNAL,Low,Golden Penny Butter 450g (Carton),Golden Penny,Pantry,Carton,24,16500.00,25,true
+324,FAM-0306,PRD-000217,CODE128,Internal,INTERNAL,Low,G.P Mayonnaise Sachets (Roll),Generic,Pantry,Piece,1,700.00,170,false
+325,FAM-0306,CTN-000098,CODE128,Internal,INTERNAL,Low,G.P Mayonnaise Sachets (Carton),Generic,Pantry,Carton,50,16500.00,30,true
+327,FAM-0308,PRD-000219,CODE128,Internal,INTERNAL,Low,Alfa Ketchup Big Bottle,Generic,Pantry,Piece,1,1600.00,110,false
+328,FAM-0309,PRD-000220,CODE128,Internal,INTERNAL,Low,Alfa Ketchup Small Bottle,Generic,Pantry,Piece,1,900.00,140,false
+329,FAM-0310,PRD-000221,CODE128,Internal,INTERNAL,Low,G.P Mayonnaise Big Bottle,Generic,Pantry,Piece,1,2200.00,90,false
+330,FAM-0311,PRD-000222,CODE128,Internal,INTERNAL,Low,Always Sanitary Pad (Pack),Generic,Personal Care,Piece,1,1800.00,140,false
+331,FAM-0312,PRD-000223,CODE128,Internal,INTERNAL,Low,Ladycare Sanitary Pad Box,Generic,Personal Care,Piece,1,1800.00,140,false
+332,FAM-0313,PRD-000224,CODE128,Internal,INTERNAL,Low,Ladycare Pad Sachets (Pack),Generic,Personal Care,Piece,1,1800.00,140,false
+333,FAM-0314,PRD-000225,CODE128,Internal,INTERNAL,Low,Drylove Pad Sachets / Bag,Generic,Personal Care,Piece,1,1800.00,140,false
+334,FAM-0315,PRD-000226,CODE128,Internal,INTERNAL,Low,Bisense Pad Zip Pack,Generic,Personal Care,Piece,1,1800.00,140,false
+335,FAM-0316,PRD-000227,CODE128,Internal,INTERNAL,Low,Softcare Zip Sanitary Pad,Softcare,Personal Care,Piece,1,1800.00,140,false
+336,FAM-0317,PRD-000228,CODE128,Internal,INTERNAL,Low,Softcare Pad Sachets (3pcs),Softcare,Personal Care,Piece,1,2100.00,120,false
+337,FAM-0318,PRD-000229,CODE128,Internal,INTERNAL,Low,Bisense Pad Sachets (3pcs),Generic,Personal Care,Piece,1,1900.00,130,false
+338,FAM-0319,PRD-000230,CODE128,Internal,INTERNAL,Low,Molped Sanitary Pad Single 7s,Molped,Personal Care,Piece,1,850.00,200,false
+339,FAM-0320,PRD-000231,CODE128,Internal,INTERNAL,Low,Molped Sanitary Pad Single 8s,Molped,Personal Care,Piece,1,850.00,200,false
+340,FAM-0321,PRD-000232,CODE128,Internal,INTERNAL,Low,Molped Sanitary Pad Single 10s,Molped,Personal Care,Piece,1,850.00,200,false
+341,FAM-0322,PRD-000233,CODE128,Internal,INTERNAL,Low,Molped Sanitary Pad 14s Value,Molped,Personal Care,Piece,1,1650.00,140,false
+342,FAM-0323,PRD-000234,CODE128,Internal,INTERNAL,Low,Molped Sanitary Pad 28s Super Value,Molped,Personal Care,Piece,1,2900.00,90,false
+343,FAM-0324,PRD-000235,CODE128,Internal,INTERNAL,Low,Molped Sanitary Pad 32s Maxi,Molped,Personal Care,Piece,1,2900.00,90,false
+344,FAM-0325,PRD-000236,CODE128,Internal,INTERNAL,Low,Angel Baby Wipes Pant Liner,Generic,Baby,Piece,1,1600.00,120,false
+345,FAM-0326,PRD-000237,CODE128,Internal,INTERNAL,Low,Angel Baby Wipes Regular,Generic,Baby,Piece,1,1400.00,130,false
+346,FAM-0327,PRD-000238,CODE128,Internal,INTERNAL,Low,Dr. Brown's Baby Wipes Pack,Dr. Brown's,Baby,Piece,1,1200.00,150,false
+347,FAM-0328,PRD-000239,CODE128,Internal,INTERNAL,Low,Cussons Baby Wipes Small,Generic,Baby,Piece,1,1350.00,140,false
+348,FAM-0329,PRD-000240,CODE128,Internal,INTERNAL,Low,Molfix Baby Wipes Pack,Molfix,Baby,Piece,1,1500.00,130,false
+349,FAM-0330,PRD-000241,CODE128,Internal,INTERNAL,Low,Paracetamol Emzor 500mg Pack,Generic,Personal Care,Piece,1,1650.00,140,false
+350,FAM-0331,PRD-000242,CODE128,Internal,INTERNAL,Low,Paracetamol M&B 500mg Pack,Generic,Personal Care,Piece,1,1850.00,130,false
+351,FAM-0332,PRD-000243,CODE128,Internal,INTERNAL,Low,Karizole Antifungal Cream (Piece),Generic,Personal Care,Piece,1,1500.00,120,false
+352,FAM-0333,PRD-000244,CODE128,Internal,INTERNAL,Low,Alabukun Powder Box / Roll,Generic,Personal Care,Piece,1,3000.00,90,false
+353,FAM-0334,PRD-000245,CODE128,Internal,INTERNAL,Low,Asanta Pain Relief Powder (Piece),Generic,Personal Care,Piece,1,600.00,180,false
+354,FAM-0335,PRD-000246,CODE128,Internal,INTERNAL,Low,Remote Battery Small (Card),Generic,Household,Piece,1,2200.00,130,false
+355,FAM-0336,PRD-000247,CODE128,Internal,INTERNAL,Low,Remote Battery Big (Card),Generic,Household,Piece,1,2400.00,120,false
+356,FAM-0337,PRD-000248,CODE128,Internal,INTERNAL,Low,A03 Gas Lighter Pack,Generic,Household,Piece,1,4800.00,80,false
+357,FAM-0338,PRD-000249,CODE128,Internal,INTERNAL,Low,A08 Gas Lighter Pack,Generic,Household,Piece,1,6800.00,65,false
+358,FAM-0339,PRD-000250,CODE128,Internal,INTERNAL,Low,Rambo Mosquito Coil (Piece),Generic,Household,Piece,1,400.00,250,false
+359,FAM-0340,CTN-000099,CODE128,Internal,INTERNAL,Low,Rambo Mosquito Coil (Carton),Generic,Household,Carton,24,23000.00,30,true
+360,FAM-0341,PRD-000251,CODE128,Internal,INTERNAL,Low,Sunshine Air Freshener Spray Pack,Generic,Household,Piece,1,4200.00,80,false
+361,FAM-0342,PRD-000252,CODE128,Internal,INTERNAL,Low,Swiss Air Freshener Spray Big,Generic,Household,Piece,1,3500.00,90,false
+362,FAM-0343,PRD-000253,CODE128,Internal,INTERNAL,Low,BNC Fleet Big Insecticide,Generic,Insecticides,Piece,1,2200.00,120,false
+363,FAM-0344,PRD-000254,CODE128,Internal,INTERNAL,Low,BNC Fleet Small Insecticide,Generic,Insecticides,Piece,1,1900.00,140,false
+364,FAM-0345,PRD-000255,CODE128,Internal,INTERNAL,Low,Raid Fleet Small Insecticide,Generic,Insecticides,Piece,1,2400.00,120,false
+365,FAM-0346,PRD-000256,CODE128,Internal,INTERNAL,Low,Raid Fleet Big Insecticide,Generic,Insecticides,Piece,1,3700.00,85,false
+366,FAM-0347,PRD-000257,CODE128,Internal,INTERNAL,Low,Rambo Fleet Small Insecticide,Generic,Insecticides,Piece,1,2200.00,130,false
+367,FAM-0348,PRD-000258,CODE128,Internal,INTERNAL,Low,Baygon Fleet Small Insecticide,Generic,Insecticides,Piece,1,2700.00,110,false
+368,FAM-0349,PRD-000259,CODE128,Internal,INTERNAL,Low,Baygon Fleet Big Insecticide,Generic,Insecticides,Piece,1,4500.00,75,false
+369,FAM-0350,PRD-000260,CODE128,Internal,INTERNAL,Low,Goodnight Fleet Small Insecticide,Generic,Insecticides,Piece,1,2400.00,120,false
+370,FAM-0351,PRD-000261,CODE128,Internal,INTERNAL,Low,Mortein Fleet Small Insecticide,Generic,Insecticides,Piece,1,3000.00,100,false
+371,FAM-0352,CTN-000100,CODE128,Internal,INTERNAL,Low,Mortein Fleet Small (Bag),Generic,Insecticides,Carton,24,6000.00,40,true
+372,FAM-0353,PRD-000262,CODE128,Internal,INTERNAL,Low,Drummer Air Freshener Block,Generic,Household,Piece,1,2400.00,110,false
+373,FAM-0354,PRD-000263,CODE128,Internal,INTERNAL,Low,Power Shot Fleet Small Insecticide,Generic,Insecticides,Piece,1,2100.00,130,false
+374,FAM-0355,PRD-000264,CODE128,Internal,INTERNAL,Low,Sniper Fleet White Small,Sniper,Insecticides,Piece,1,2100.00,140,false
+375,FAM-0356,CTN-000101,CODE128,Internal,INTERNAL,Low,Sniper Fleet White (Bag),Sniper,Insecticides,Carton,24,4200.00,50,true
+376,FAM-0357,PRD-000265,CODE128,Internal,INTERNAL,Low,Sniper Fleet Yellow Small,Sniper,Insecticides,Piece,1,2100.00,140,false
+377,FAM-0358,CTN-000102,CODE128,Internal,INTERNAL,Low,Sniper Fleet Yellow (Bag),Sniper,Insecticides,Carton,24,4200.00,50,true
+378,FAM-0359,PRD-000266,CODE128,Internal,INTERNAL,Low,Sniper Fleet Black Small,Sniper,Insecticides,Piece,1,2200.00,130,false
+379,FAM-0360,CTN-000103,CODE128,Internal,INTERNAL,Low,Sniper Fleet Black (Bag),Sniper,Insecticides,Carton,24,4400.00,50,true
+380,FAM-0361,PRD-000267,CODE128,Internal,INTERNAL,Low,Goya Extra Virgin Olive Oil Bottle,Generic,Personal Care,Piece,1,2200.00,110,false
+381,FAM-0362,PRD-000268,CODE128,Internal,INTERNAL,Low,Goya Extra Virgin Olive Oil Plastic,Generic,Personal Care,Piece,1,1200.00,150,false
+382,FAM-0363,PRD-000269,CODE128,Internal,INTERNAL,Low,Veet Hair Remover Cream Tube,Generic,Personal Care,Piece,1,4000.00,80,false
+383,FAM-0364,PRD-000270,CODE128,Internal,INTERNAL,Low,Air Wick Room Spray 300ml,Air Wick,Household,Piece,1,2500.00,100,false
+384,FAM-0365,PRD-000271,CODE128,Internal,INTERNAL,Low,Freshmatic Automatic Kit Complete,Generic,Household,Piece,1,4500.00,60,false
+385,FAM-0366,PRD-000272,CODE128,Internal,INTERNAL,Low,Shaving Bic 1 (Roll),Generic,Personal Care,Piece,1,1500.00,140,false
+386,FAM-0367,PRD-000273,CODE128,Internal,INTERNAL,Low,Shaving Bic Dorco (Roll),Generic,Personal Care,Piece,1,1200.00,160,false
+387,FAM-0368,PRD-000274,CODE128,Internal,INTERNAL,Low,Rexona Roll-on Deodorant 50ml,Generic,Personal Care,Piece,1,1500.00,140,false
+388,FAM-0369,PRD-000275,CODE128,Internal,INTERNAL,Low,Nivea Deodorant Spray 200ml,Generic,Personal Care,Piece,1,3000.00,100,false
+389,FAM-0370,PRD-000276,CODE128,Internal,INTERNAL,Low,Nivea Roll-on Deodorant 50ml,Generic,Personal Care,Piece,1,1900.00,130,false
+390,FAM-0371,6156000032214,EAN13,Manufacturer,VERIFIED,High,Golden Penny Spaghettini 500g (Piece),Golden Penny,Pantry,Piece,1,950.00,180,false
+391,FAM-0372,16156000032211,ITF14,Manufacturer,VERIFIED,High,Golden Penny Spaghettini (Carton),Golden Penny,Pantry,Carton,24,19000.00,30,true
+392,FAM-0373,6156000032207,EAN13,Manufacturer,VERIFIED,High,Golden Penny Spaghetti 500g (Piece),Golden Penny,Pantry,Piece,1,950.00,180,false
+394,FAM-0375,PRD-000279,CODE128,Internal,INTERNAL,Low,Auntie Bee B Spaghettini 500g (Piece),Generic,Pantry,Piece,1,870.00,190,false
+395,FAM-0376,CTN-000106,CODE128,Internal,INTERNAL,Low,Auntie Bee B Spaghettini (Carton),Generic,Pantry,Carton,24,17300.00,30,true
+396,FAM-0377,PRD-000280,CODE128,Internal,INTERNAL,Low,Auntie Bee B Spaghetti 500g (Piece),Generic,Pantry,Piece,1,870.00,190,false
+397,FAM-0378,CTN-000107,CODE128,Internal,INTERNAL,Low,Auntie Bee B Spaghetti (Carton),Generic,Pantry,Carton,24,17300.00,30,true
+398,FAM-0379,PRD-000281,CODE128,Internal,INTERNAL,Low,Golden Penny Macaroni Big (Piece),Golden Penny,Pantry,Piece,1,950.00,180,false
+399,FAM-0380,CTN-000108,CODE128,Internal,INTERNAL,Low,Golden Penny Macaroni Big (Carton),Golden Penny,Pantry,Carton,24,19000.00,30,true
+400,FAM-0381,PRD-000282,CODE128,Internal,INTERNAL,Low,Golden Penny Macaroni Small (Piece),Golden Penny,Pantry,Piece,1,500.00,220,false
+401,FAM-0382,CTN-000109,CODE128,Internal,INTERNAL,Low,Golden Penny Macaroni Small (Carton),Golden Penny,Pantry,Carton,24,9800.00,35,true
+402,FAM-0383,6156000032283,EAN13,Manufacturer,VERIFIED,High,Golden Penny Semovita 500g (Piece),Golden Penny,Pantry,Piece,1,800.00,180,false
+403,FAM-0384,CTN-000110,CODE128,Internal,INTERNAL,Low,Golden Penny Semovita 500g (Bag),Golden Penny,Pantry,Carton,24,15400.00,30,true
+404,FAM-0385,6156000032290,EAN13,Manufacturer,VERIFIED,High,Golden Penny Semovita 1kg (Piece),Golden Penny,Pantry,Piece,1,1600.00,130,false
+405,FAM-0386,CTN-000111,CODE128,Internal,INTERNAL,Low,Golden Penny Semovita 1kg (Bag),Golden Penny,Pantry,Carton,24,15300.00,25,true
+406,FAM-0387,6156000032306,EAN13,Manufacturer,VERIFIED,High,Golden Penny Semovita 2kg (Piece),Golden Penny,Pantry,Piece,1,3200.00,90,false
+407,FAM-0388,CTN-000112,CODE128,Internal,INTERNAL,Low,Golden Penny Semovita 2kg (Bag),Golden Penny,Pantry,Carton,24,15300.00,20,true
+408,FAM-0389,CTN-000113,CODE128,Internal,INTERNAL,Low,Golden Penny Semovita 5kg (Bag),Golden Penny,Pantry,Carton,24,7700.00,60,true
+409,FAM-0390,CTN-000114,CODE128,Internal,INTERNAL,Low,Golden Penny Semovita 10kg (Bag),Golden Penny,Pantry,Carton,24,14800.00,40,true
+410,FAM-0391,PRD-000286,CODE128,Internal,INTERNAL,Low,Honeywell Semolina 1kg (Piece),Generic,Pantry,Piece,1,1600.00,130,false
+411,FAM-0392,CTN-000115,CODE128,Internal,INTERNAL,Low,Honeywell Semolina 1kg (Bag),Generic,Pantry,Carton,24,15300.00,25,true
+412,FAM-0393,PRD-000287,CODE128,Internal,INTERNAL,Low,Honeywell Semolina 2kg (Piece),Generic,Pantry,Piece,1,3200.00,90,false
+413,FAM-0394,CTN-000116,CODE128,Internal,INTERNAL,Low,Honeywell Semolina 2kg (Bag),Generic,Pantry,Carton,24,15200.00,20,true
+414,FAM-0395,CTN-000117,CODE128,Internal,INTERNAL,Low,Honeywell Semolina 5kg (Bag),Generic,Pantry,Carton,24,7700.00,60,true
+415,FAM-0396,CTN-000118,CODE128,Internal,INTERNAL,Low,Honeywell Semolina 10kg (Bag),Generic,Pantry,Carton,24,14700.00,40,true
+416,FAM-0397,PRD-000288,CODE128,Internal,INTERNAL,Low,Honeywell / G.P Wheat 1kg (Piece),Generic,Pantry,Piece,1,1250.00,150,false
+417,FAM-0398,CTN-000119,CODE128,Internal,INTERNAL,Low,Honeywell / G.P Wheat 1kg (Bag),Generic,Pantry,Carton,24,12000.00,30,true
+418,FAM-0399,PRD-000289,CODE128,Internal,INTERNAL,Low,Pap 20g Jar Checkers (Piece),Checkers,Breakfast,Piece,1,615.00,180,false
+419,FAM-0400,CTN-000120,CODE128,Internal,INTERNAL,Low,Pap 20g Jar Checkers (Carton),Checkers,Breakfast,Carton,24,17700.00,30,true
+420,FAM-0401,PRD-000290,CODE128,Internal,INTERNAL,Low,3in1 Easy Jar Checkers 400g (Piece),Checkers,Breakfast,Piece,1,4500.00,80,false
+421,FAM-0402,CTN-000121,CODE128,Internal,INTERNAL,Low,3in1 Easy Jar Checkers (Carton),Checkers,Breakfast,Carton,24,14600.00,20,true
+422,FAM-0403,PRD-000291,CODE128,Internal,INTERNAL,Low,Checkers Custard 3in1 2kg Jar (Piece),Checkers,Breakfast,Piece,1,4500.00,80,false
+423,FAM-0404,CTN-000122,CODE128,Internal,INTERNAL,Low,Checkers Custard 3in1 2kg (Carton),Checkers,Breakfast,Carton,24,17800.00,20,true
+424,FAM-0405,PRD-000292,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 2kg Jar (Piece),Checkers,Breakfast,Piece,1,4500.00,80,false
+425,FAM-0406,CTN-000123,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 2kg (Carton),Checkers,Breakfast,Carton,24,13500.00,20,true
+426,FAM-0407,PRD-000293,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 400g Refill (Piece),Checkers,Breakfast,Piece,1,900.00,160,false
+427,FAM-0408,CTN-000124,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 400g Refill (Carton),Checkers,Breakfast,Carton,24,14000.00,30,true
+428,FAM-0409,PRD-000294,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 1kg Refill (Piece),Checkers,Breakfast,Piece,1,1850.00,120,false
+429,FAM-0410,CTN-000125,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 1kg Refill (Carton),Checkers,Breakfast,Carton,24,14500.00,25,true
+430,FAM-0411,PRD-000295,CODE128,Internal,INTERNAL,Low,Checkers Custard 3in1 700g Refill (Piece),Checkers,Breakfast,Piece,1,2850.00,95,false
+431,FAM-0412,CTN-000126,CODE128,Internal,INTERNAL,Low,Checkers Custard 3in1 700g Refill (Carton),Checkers,Breakfast,Carton,24,16300.00,20,true
+432,FAM-0413,PRD-000296,CODE128,Internal,INTERNAL,Low,Checkers Custard 3in1 45g Sachets (Roll),Checkers,Breakfast,Piece,1,1950.00,120,false
+433,FAM-0414,CTN-000127,CODE128,Internal,INTERNAL,Low,Checkers Custard 3in1 Sachets (Carton),Checkers,Breakfast,Carton,50,15500.00,25,true
+434,FAM-0415,PRD-000297,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 400g Jar (Piece),Checkers,Breakfast,Piece,1,1200.00,140,false
+435,FAM-0416,CTN-000128,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 400g Jar (Carton),Checkers,Breakfast,Carton,24,13800.00,25,true
+436,FAM-0417,PRD-000298,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 1kg Jar (Piece),Checkers,Breakfast,Piece,1,3000.00,90,false
+437,FAM-0418,CTN-000129,CODE128,Internal,INTERNAL,Low,Checkers Custard Vanilla 1kg Jar (Carton),Checkers,Breakfast,Carton,24,11900.00,20,true
+438,FAM-0419,PRD-000299,CODE128,Internal,INTERNAL,Low,Checkers Custard 4in1 1kg Jar (Piece),Checkers,Breakfast,Piece,1,3000.00,90,false
+439,FAM-0420,CTN-000130,CODE128,Internal,INTERNAL,Low,Checkers Custard 4in1 1kg Jar (Carton),Checkers,Breakfast,Carton,24,11900.00,20,true
+440,FAM-0421,PRD-000300,CODE128,Internal,INTERNAL,Low,Checkers Banana Sachets 45g (Roll),NAN,Breakfast,Piece,1,1050.00,140,false
+441,FAM-0422,CTN-000131,CODE128,Internal,INTERNAL,Low,Checkers Banana Sachets (Carton),NAN,Breakfast,Carton,50,12900.00,30,true
+442,FAM-0423,PRD-000301,CODE128,Internal,INTERNAL,Low,Checkers Vanilla Sachets 45g (Roll),Checkers,Breakfast,Piece,1,1050.00,140,false
+443,FAM-0424,CTN-000132,CODE128,Internal,INTERNAL,Low,Checkers Vanilla Sachets (Carton),Checkers,Breakfast,Carton,50,12900.00,30,true
+444,FAM-0425,PRD-000302,CODE128,Internal,INTERNAL,Low,Checkers Pap 45g Sachets (Roll),Checkers,Breakfast,Piece,1,1650.00,130,false
+445,FAM-0425,CTN-000133,CODE128,Internal,INTERNAL,Low,Checkers Pap 45g Sachets (Carton),Checkers,Breakfast,Carton,50,12900.00,25,true
+446,FAM-0426,CTN-000134,CODE128,Internal,INTERNAL,Low,Skiddo Celebration Sweet x 39 (Bag),Generic,Confectionery,Carton,39,3300.00,110,true
+447,FAM-0427,CTN-000135,CODE128,Internal,INTERNAL,Low,Skiddo Crunch Sweet x 39 (Bag),Generic,Confectionery,Carton,39,3300.00,110,true
+448,FAM-0428,CTN-000136,CODE128,Internal,INTERNAL,Low,Cheeseballs Snack x 50 (Pack),Generic,Snacks,Carton,50,4000.00,90,true
+449,FAM-0429,CTN-000137,CODE128,Internal,INTERNAL,Low,Classic Peanut 35g x 78 (Bag),Generic,Snacks,Carton,78,7000.00,80,true
+450,FAM-0430,CTN-000138,CODE128,Internal,INTERNAL,Low,Party Chips Snack x 50 (Bag),Generic,Snacks,Carton,50,2300.00,120,true
+451,FAM-0431,CTN-000139,CODE128,Internal,INTERNAL,Low,Popstar Popcorn Bag x 50 (Bag),Popstar,Snacks,Carton,50,4900.00,85,true
+452,FAM-0432,PRD-000303,CODE128,Internal,INTERNAL,Low,Tom Tom Menthol Candy (Piece),Tom Tom,Confectionery,Piece,1,950.00,180,false
+453,FAM-0433,CTN-000140,CODE128,Internal,INTERNAL,Low,Tom Tom Menthol Candy (Carton),Tom Tom,Confectionery,Carton,24,21500.00,25,true
+454,FAM-0434,PRD-000304,CODE128,Internal,INTERNAL,Low,Vicks Blue / Lemon Menthol (Piece),Vicks,Confectionery,Piece,1,600.00,200,false
+455,FAM-0435,CTN-000141,CODE128,Internal,INTERNAL,Low,Vicks Blue / Lemon (Carton),Vicks,Confectionery,Carton,24,13500.00,30,true
+456,FAM-0436,PRD-000305,CODE128,Internal,INTERNAL,Low,Buttermint Chewy Candy (Piece),Buttermint,Confectionery,Piece,1,950.00,180,false
+457,FAM-0437,CTN-000142,CODE128,Internal,INTERNAL,Low,Buttermint Chewy Candy (Carton),Buttermint,Confectionery,Carton,24,21500.00,25,true
+458,FAM-0438,PRD-000306,CODE128,Internal,INTERNAL,Low,4in1 Custard Checkers 400g Jar (Piece),Checkers,Breakfast,Piece,1,2000.00,110,false
+459,FAM-0439,CTN-000143,CODE128,Internal,INTERNAL,Low,4in1 Custard Checkers 400g (Carton),Checkers,Breakfast,Carton,24,11500.00,25,true
+460,FAM-0440,6009647690272,EAN13,Manufacturer,VERIFIED,High,Sunripe Whole Canned Sweetcorn 340g (Piece),Sunripe,Pantry,Piece,1,1200.00,100,false
+461,FAM-0441,16009647690279,ITF14,Manufacturer,VERIFIED,High,Sunripe Whole Canned Sweetcorn (Carton of 12),Sunripe,Pantry,Carton,12,13500.00,20,true
+462,FAM-0442,6009647693204,EAN13,Manufacturer,VERIFIED,High,Sunripe Canned Baked Beans 410g (Piece),Sunripe,Pantry,Piece,1,1100.00,100,false
+463,FAM-0443,16009647693201,ITF14,Manufacturer,VERIFIED,High,Sunripe Canned Baked Beans (Carton of 12),Sunripe,Pantry,Carton,12,12000.00,20,true
+464,FAM-0444,6009647690593,EAN13,Manufacturer,VERIFIED,High,Sunripe Canned Mixed Vegetables 400g (Piece),Sunripe,Pantry,Piece,1,1400.00,100,false
+465,FAM-0445,16009647690590,ITF14,Manufacturer,VERIFIED,High,Sunripe Canned Mixed Vegetables (Carton of 12),Sunripe,Pantry,Carton,12,15500.00,20,true
+466,FAM-0446,8852707200144,EAN13,Manufacturer,VERIFIED,High,Geisha Mackerel in Tomato Sauce 155g (Piece),Geisha,Pantry,Piece,1,900.00,100,false
+467,FAM-0447,18852707200141,ITF14,Manufacturer,VERIFIED,High,Geisha Mackerel in Tomato Sauce (Carton of 50),Geisha,Pantry,Carton,50,42000.00,15,true
+468,FAM-0448,3553460000112,EAN13,Manufacturer,VERIFIED,High,Titus Sardines in Vegetable Oil 125g (Piece),Titus,Pantry,Piece,1,1000.00,100,false
+469,FAM-0449,13553460000119,ITF14,Manufacturer,VERIFIED,High,Titus Sardines in Vegetable Oil (Carton of 50),Titus,Pantry,Carton,50,47500.00,15,true
+470,FAM-0450,4897052890231,EAN13,Manufacturer,VERIFIED,High,Gino Tomato Paste 70g Sachet (Piece),Gino,Pantry,Piece,1,300.00,150,false
+471,FAM-0451,14897052890238,ITF14,Manufacturer,VERIFIED,High,Gino Tomato Paste 70g (Carton of 50),Gino,Pantry,Carton,50,13500.00,20,true
+472,FAM-0452,CTN-000144,CODE128,Internal,INTERNAL,Low,Indomie Chicken Flavour Quarter Carton (10 packs),Indomie,Pantry,Carton,10,3200.00,50,true
+473,FAM-0453,CTN-000145,CODE128,Internal,INTERNAL,Low,Indomie Chicken Flavour Half Carton (20 packs),Indomie,Pantry,Carton,20,6200.00,30,true
+474,FAM-0454,1089686120070,ITF14,Manufacturer,VERIFIED,High,Indomie Chicken Flavour Full Carton (40 packs),Indomie,Pantry,Carton,40,12000.00,20,true
+477,FAM-0457,6151100037817,EAN13,Manufacturer,VERIFIED,High,Maggi Star Cube 100-Cube Pack (Piece),Maggi,Spices,Piece,1,1400.00,150,false
+478,FAM-0458,16151100037814,ITF14,Manufacturer,VERIFIED,High,Maggi Star Cube 100-Cube (Carton of 24),Maggi,Spices,Carton,24,31500.00,20,true
+479,FAM-0459,5000184161028,EAN13,Manufacturer,VERIFIED,High,Knorr Chicken Bouillon Cubes 80g (Piece),Knorr,Spices,Piece,1,650.00,200,false
+480,FAM-0460,15000184161025,ITF14,Manufacturer,VERIFIED,High,Knorr Chicken Bouillon Cubes (Carton of 48),Knorr,Spices,Carton,48,28800.00,25,true
+481,FAM-0461,6161102000740,EAN13,Manufacturer,VERIFIED,High,Morning Fresh Dishwashing Liquid 750ml (Bottle),Morning Fresh,Cleaning,Piece,1,2200.00,100,false
+482,FAM-0462,16161102000747,ITF14,Manufacturer,VERIFIED,High,Morning Fresh Dishwashing Liquid 750ml (Carton of 12),Morning Fresh,Cleaning,Carton,12,24500.00,20,true
+483,FAM-0463,6161100950153,EAN13,Manufacturer,VERIFIED,High,Dettol Antiseptic Liquid 250ml (Bottle),Dettol,Cleaning,Piece,1,3500.00,90,false
+484,FAM-0464,16161100950150,ITF14,Manufacturer,VERIFIED,High,Dettol Antiseptic Liquid 250ml (Carton of 24),Dettol,Cleaning,Carton,24,78000.00,15,true
+485,FAM-0465,6001106118167,EAN13,Manufacturer,VERIFIED,High,Harpic Power Plus Toilet Cleaner 500ml (Bottle),Harpic,Cleaning,Piece,1,2500.00,80,false
+486,FAM-0466,16001106118164,ITF14,Manufacturer,VERIFIED,High,Harpic Power Plus 500ml (Carton of 12),Harpic,Cleaning,Carton,12,28000.00,15,true
+487,FAM-0467,6154000010102,EAN13,Manufacturer,VERIFIED,High,Eva Still Water 50cl (Single Bottle),Eva,Beverages,Piece,1,150.00,200,false
+488,FAM-0468,16154000010109,ITF14,Manufacturer,VERIFIED,High,Eva Still Water 50cl (Carton of 24),Eva,Beverages,Carton,24,3200.00,40,true
+489,FAM-0469,6151000012346,EAN13,Manufacturer,VERIFIED,High,Pepsi 50cl PET Bottle (Single),Pepsi,Beverages,Piece,1,400.00,150,false
+490,FAM-0470,16151000012343,ITF14,Manufacturer,VERIFIED,High,Pepsi 50cl PET Bottle (Carton of 12),Pepsi,Beverages,Carton,12,4400.00,30,true
+491,FAM-0471,6151000014449,EAN13,Manufacturer,VERIFIED,High,7Up 50cl PET Bottle (Single),7Up,Beverages,Piece,1,400.00,150,false
+492,FAM-0472,6151000010243,EAN13,Manufacturer,VERIFIED,High,Malta Guinness 33cl Can (Single),Malta Guinness,Beverages,Piece,1,700.00,150,false
+493,FAM-0473,16151000010240,ITF14,Manufacturer,VERIFIED,High,Malta Guinness 33cl (Carton of 24),Malta Guinness,Beverages,Carton,24,15500.00,25,true
+494,FAM-0474,6154000015404,EAN13,Manufacturer,VERIFIED,High,Kings oil 1litre 1 piece,Devon King's,Pantry,Piece,1,2800.00,80,false
+495,FAM-0475,6154000102357,EAN13,Manufacturer,VERIFIED,High,Freshly yoghurt 125ml carton,FreshYo,Beverages,Piece,1,300.00,150,false
+497,FAM-0477,6156000261201,EAN13,Manufacturer,VERIFIED,High,Cway bottle water,Cway,Beverages,Piece,1,200.00,200,false
+498,FAM-0478,5449000293824,EAN13,Manufacturer,VERIFIED,High,COCA-COLA ORIG 600ML 1 piece,Generic,Pantry,Piece,1,1000.00,100,false
+499,FAM-0479,6154000041540,EAN13,Manufacturer,VERIFIED,High,Golden penny pasta twist 200g piece,Generic,Pantry,Piece,1,1000.00,100,false
+500,FAM-0480,8410300572671,EAN13,Manufacturer,VERIFIED,High,Gino Thyme powder satchet roll,Generic,Pantry,Piece,1,1000.00,100,false
+501,FAM-0481,8410300366324,EAN13,Manufacturer,VERIFIED,High,Gino Curry powder satchet roll,Generic,Pantry,Piece,1,1000.00,100,false
+502,FAM-0482,6156000133843,EAN13,Manufacturer,VERIFIED,High,TomatoGood Tomato mix 1.1kg piece,Generic,Pantry,Piece,1,1000.00,100,false
+503,FAM-0483,875234945867,EAN13,Manufacturer,VERIFIED,High,Marvico Foods Udu Corn flakes 500g,Generic,Pantry,Piece,1,1000.00,100,false
+504,FAM-0484,6154000230470,EAN13,Manufacturer,VERIFIED,High,Golden Penny mayonnaise 450g,Generic,Pantry,Piece,1,1000.00,100,false
+505,FAM-0485,5010182990193,EAN13,Manufacturer,VERIFIED,High,BAYGON 300ML,Generic,Pantry,Piece,1,1000.00,100,false
+506,FAM-0486,6921269118609,EAN13,Manufacturer,VERIFIED,High,Dry love sanitary napkin pad  1roll,Generic,Pantry,Piece,1,1000.00,100,false
+507,FAM-0487,6154000060688,EAN13,Manufacturer,VERIFIED,High,Auntie B pasta spaghetti 500g,Generic,Pantry,Piece,1,1000.00,100,false
+508,FAM-0488,6156000022666,EAN13,Manufacturer,VERIFIED,High,Honeywell Macaroni cavatto  500g,Generic,Pantry,Piece,1,1000.00,100,false
+509,FAM-0489,3254474000005,EAN13,Manufacturer,VERIFIED,High,Green giant sweet corn 184ml,Generic,Pantry,Piece,1,1000.00,100,false
+510,FAM-0490,8850015082902,EAN13,Manufacturer,VERIFIED,High,Sunripe whole sweet corn 185g,Generic,Pantry,Piece,1,1000.00,100,false
+511,FAM-0491,6156000715964,EAN13,Manufacturer,VERIFIED,High,John vents Pure cocoa powder 200g,Generic,Pantry,Piece,1,1000.00,100,false
+512,FAM-0492,6972361370853,EAN13,Manufacturer,VERIFIED,High,Green giant 340ml,Generic,Pantry,Piece,1,1000.00,100,false
+513,FAM-0493,6935897666241,EAN13,Manufacturer,VERIFIED,High,Heinz beanz 415g,Generic,Pantry,Piece,1,1000.00,100,false
+514,FAM-0494,6154000014919,EAN13,Manufacturer,VERIFIED,High,Mamador vegetable oil 3.5liter,Generic,Pantry,Piece,1,1000.00,100,false
+515,FAM-0495,6156000208435,EAN13,Manufacturer,VERIFIED,High,Power oil 1.4 litre,Generic,Pantry,Piece,1,1000.00,100,false
+516,FAM-0496,6151100311887,EAN13,Manufacturer,VERIFIED,High,Devon’s Kings oil 1 liter,Generic,Pantry,Piece,1,1000.00,100,false
+517,FAM-0497,6156000100012,EAN13,Manufacturer,VERIFIED,High,POWER OIL 1LTR,Generic,Pantry,Piece,1,1000.00,100,false
+518,FAM-0498,8410300362050,EAN13,Manufacturer,VERIFIED,High,Bama mayonnaise 226ml,Generic,Pantry,Piece,1,1000.00,100,false
+519,FAM-0499,6154000041632,EAN13,Manufacturer,VERIFIED,High,Golden penny spreed 450g,Generic,Pantry,Piece,1,1000.00,100,false
+520,FAM-0500,6154000041625,EAN13,Manufacturer,VERIFIED,High,Golden penny spread 250g,Generic,Pantry,Piece,1,1000.00,100,false
+521,FAM-0501,6154000230531,EAN13,Manufacturer,VERIFIED,High,Golden penny choco spread with cocoa 325g,Generic,Pantry,Piece,1,1000.00,100,false
+522,FAM-0502,130200024190,EAN13,Manufacturer,VERIFIED,High,Luna small tin 150g,Generic,Pantry,Piece,1,1000.00,100,false
