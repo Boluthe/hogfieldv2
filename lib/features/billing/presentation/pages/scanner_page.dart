@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vibration/vibration.dart';
+import '../../../../core/utils/sound_helper.dart';
 
 class ScannerPage extends StatefulWidget {
   const ScannerPage({super.key});
@@ -32,13 +31,8 @@ class _ScannerPageState extends State<ScannerPage> {
       if (barcode.rawValue != null) {
         _isScanned = true;
         
-        // Play sound and vibrate
-        SystemSound.play(SystemSoundType.click);
-        
-        final hasVibrator = await Vibration.hasVibrator();
-        if (hasVibrator == true) {
-          Vibration.vibrate();
-        }
+        // Play scan sound and vibrate
+        SoundHelper.playScanSound();
 
         if (mounted) {
           context.pop(barcode.rawValue);

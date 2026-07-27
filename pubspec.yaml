@@ -45,6 +45,7 @@ dependencies:
   app_settings: ^7.0.0
   firebase_core: ^4.12.1
   cloud_firestore: ^6.7.1
+  flutter_ringtone_player: ^4.0.0+4
 
 dev_dependencies:
   flutter_test:

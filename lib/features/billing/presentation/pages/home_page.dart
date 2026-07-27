@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vibration/vibration.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import '../../../../core/utils/sound_helper.dart';
 
 import '../../../billing/presentation/bloc/billing_bloc.dart';
 import '../../../../core/theme/app_theme.dart';
@@ -14,6 +14,8 @@ import '../../../auth/presentation/bloc/auth_state.dart';
 import '../../../auth/domain/entities/role.dart';
 import '../../../../core/data/hive_database.dart';
 import '../../../product/data/models/product_model.dart';
+
+import 'staff_scanner_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -59,11 +61,8 @@ class _HomePageState extends State<HomePage> {
 
         _lastScanTimes[rawValue] = now;
 
-        // Vibrate
-        final hasVibrator = await Vibration.hasVibrator();
-        if (hasVibrator == true) {
-          Vibration.vibrate();
-        }
+        // Sound & Vibrate
+        SoundHelper.playScanSound();
 
         if (mounted) {
           context.read<BillingBloc>().add(ScanBarcodeEvent(rawValue));
@@ -86,6 +85,10 @@ class _HomePageState extends State<HomePage> {
 
         if (authState.role == UserRole.admin) {
           return _buildAdminDashboard();
+        }
+
+        if (authState.role == UserRole.staff) {
+          return const StaffScannerView();
         }
 
         return Scaffold(
@@ -462,10 +465,7 @@ class _HomePageState extends State<HomePage> {
               },
               displayStringForOption: (ProductModel option) => option.name,
               onSelected: (ProductModel selection) async {
-                final hasVibrator = await Vibration.hasVibrator();
-                if (hasVibrator == true) {
-                  Vibration.vibrate();
-                }
+                SoundHelper.playScanSound();
                 if (mounted) {
                   context.read<BillingBloc>().add(ScanBarcodeEvent(selection.barcode));
                 }
